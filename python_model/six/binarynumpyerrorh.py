@@ -1,6 +1,6 @@
 import numpy as np
 
-class RandomGenBinarySearchNumpy:
+class BinaryNumpyWithErrorHandling:
     def __init__(self, random_nums, probabilities):
         self._random_nums = np.array(random_nums)
         self._probabilities = np.array(probabilities)

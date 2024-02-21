@@ -1,6 +1,6 @@
 import pytest
 import numpy as np
-from python_model.six.binarynumpyerrorh import BinaryNumpyWithErrorHandling
+from binarynumpyerrorh import BinaryNumpyWithErrorHandling
 
 __random_nums = [-1, 0, 1, 2, 3]
 __probs = [0.01, 0.3, 0.58, 0.1, 0.01]
