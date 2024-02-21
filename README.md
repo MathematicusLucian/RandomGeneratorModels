@@ -161,3 +161,37 @@ I have not pursued this far, because that would be beyond remit, and do not prom
 
 ### Unit tests
 I have not pursued this far, because that would be beyond remit, and do not promise that it functions well:``npm test``
+
+# Flask
+- **Localhost:** ``python3 app.py``
+- **Deploy with uWSGI:** ``uwsgi --http :5000 --module app:app`` (or could use gunicorn)
+
+**Endpoints**
+
+``/run_model``: Runs the most optimal model.
+
+- (POST request)
+
+- Requires to which expects two parameters `random_nums`, and `probabilities`, i.e. to some degree this is dynamic. (Allows for a UI to be employed so that a user may pass through different values.)
+
+- Example reponse:
+    
+    {
+        "Arg Max": 0.0810598267449273,
+        "Basic": 0.018863810433281794,
+        "Binary Search": 0.020829174253675673,
+        "Numpy B Search wv EH": 0.0705918206108941,
+        "Numpy Binary Search": 0.08169968922932942,
+        "Random Choices": 0.04187014367845324,
+        "Zip": 0.017680380079481337
+    }
+
+- An improvement would be not to hardcode which model to run, but present a Select element to the user (in the UI) so they determine which class to run (or even an option for the app to determine such according to upon the exec times in the database) - but this Flask API microservice is already beyond the remit.
+
+``/run_performance``: Runs each model.
+
+- (GET request)
+
+- This is hardcoded, i.e. the names of the models; which relate to Python classes, but this could be dynamic, with error handling where an invalid class name - but this Flask API microservice is already beyond the remit. The actual Performance Test Engine is dynamic. 
+
+- Another improvement would be to save timestamp with each performance run; and this could allow a time-series consideration, except this may be an opportunity demonstrate/explore the logic/functionality rather than necessarily a use case to run a performance test daily.
