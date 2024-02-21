@@ -1,23 +1,37 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import "./index.css";
 
 const App = (props) => {
   const [randomNums, setRandomNums] = useState(props.randomNums);
   const [probabilities, setProbabilities] = useState(props.probabilities);
-  const [response, setResponse] = useState("Please run the model . . .");
-  const [results, setResults] = useState("Loading . . .");
+  const [modelRunOutcome, setModelRunOutcome] = useState("Please run the model . . .");
+  const [avgPerformanceOutcome, setAvgPerformanceOutcome] = useState("Loading . . .");
   const url = 'https://mathematicuslucian.eu.pythonanywhere.com';
   const result_avg_path = '/performance_results_avg';
   const run_model_path = '/run_model';
 
-  useEffect(() => {
-    // To fetch average performance runs data on load. GET request 
-    fetch(url+result_avg_path)
-      .then((response) => response.json())
-      .then((data) => {
-        console.log('data', data);
-        setResults(JSON.stringify(data));
+  const fetchData = async (API_URL, PARAMS=null) => {
+    const request = (!PARAMS) 
+      ? await axios.get(`${API_URL}`, {
+        'Host': 'mathematicuslucian.eu.pythonanywhere.com',
+        'Content-Type': 'application/json'
       })
-      .catch((error) => console.error('Error while making the HTTP request to fetch average performance results:', error));
+      : await axios.post(`${API_URL}`, PARAMS, {
+        'Host': 'mathematicuslucian.eu.pythonanywhere.com',
+        'Content-Type': 'application/json',
+        'Content-Length': '79'
+      });
+    const result = await request.data;
+    return result;
+  };
+
+  useEffect(async () => {
+    // To fetch average performance runs data on load. GET request 
+    const API_URL = url+result_avg_path;
+    await fetchData(API_URL).then((modelOutcomeData) => {
+      setAvgPerformanceOutcome(JSON.stringify(modelOutcomeData));
+    }).catch((error) => console.error('Error while making the HTTP request to fetch average performance results:', error));
   }, []);
 
   const handleRandomNumsChange = (e) => {
@@ -29,43 +43,41 @@ const App = (props) => {
   };
 
   const handleClick = async () => {
+    event.preventDefault();
     // To run most optimal model and fetch performance run times. POST request 
-    try {
-      console.log(randomNums);
-      console.log(probabilities);
-      console.log(probabilities.map(Number));
-      const data = { randomNums: randomNums, probabilities: probabilities.map(Number) };
-      const response = await fetch(url+run_model_path, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
-      });
-      const result = await response.text();
-      setResponse(result);
-    } catch (error) {
+    const API_URL = url+run_model_path;
+    const PARAMS = { "randomNums": randomNums, "probabilities": probabilities.map(Number) };
+    await fetchData(API_URL, PARAMS).then((modelOutcomeData) => {
+      setModelRunOutcome(JSON.stringify(modelOutcomeData));
+    }).catch(error => {
       console.error('Error occurred while making the HTTP request to run most optimal model:', error);
-    }
+    });
   };
 
   return (
     <div>
-      <h1>Number Generation Models</h1>
-      <label htmlFor="randomNums">Random Numbers:</label>
-      <input type="text" id="randomNums" value={randomNums} onChange={handleRandomNumsChange} />
-      <br />
-      <label htmlFor="probabilities">Probabilities:</label>
-      <input type="text" id="probabilities" value={probabilities} onChange={handleProbabilitiesChange} />
-      <br />
-      <button id="btn_run_model" onClick={handleClick}>Run the most optimal model</button>
-      <br />
-      <h2>Random Results (most efficient model)</h2>
-      <div>{response}</div>
+      <h1>🌟Number Generation Models🌟 🚀 </h1>
+      <div class="formElement">
+        <label htmlFor="randomNums">Random Numbers:</label>
+        <input type="text" id="randomNums" value={randomNums} onChange={handleRandomNumsChange} />
+      </div>
+      <div class="formElement">
+        <label htmlFor="probabilities">Probabilities:</label>
+        <input type="text" id="probabilities" value={probabilities} onChange={handleProbabilitiesChange} />
+      </div>
+      <div class="formElement">
+        <button id="btn_run_model" onClick={handleClick}>Run the most optimal model</button>
+      </div>
+      <div id="modelRunOutcome">
+        <h2>Random Results (most efficient model)</h2>
+        { <div>{modelRunOutcome}</div> }
+      </div>
       <hr />
-      {/* graph */}
-      <h2>Average performance runs, all models</h2>
-      <div>{results}</div>
+      <div id="averageRuns">
+        {/* graph */}
+        <h2>Average performance runs, all models</h2>
+        <div>{avgPerformanceOutcome}</div>
+      </div>
     </div>
   );
 };

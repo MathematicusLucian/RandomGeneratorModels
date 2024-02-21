@@ -1,0 +1,21 @@
+body {
+    padding: 10px;
+    background: #202124;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+}
+.formElement {
+    margin: 5px;
+}
+input {
+    margin: 0 10px 22px 10;
+}
+button {
+    padding: 10px;
+}
+#modelRunOutcome {
+    margin-top: 8px;
+}
+#averageRuns {
+    margin-top: 15px;
+}

@@ -4,7 +4,7 @@
 
 [Click here to open the ``/run_performance`` endpoint](https://mathematicuslucian.eu.pythonanywhere.com/run_performance)
 
-- This will take a split-second to load; because it runs a thousand iterations, and across seven Python models, but it will then show you the performance/execution times. *(Or, use Postman for the ``/get_model`` POST request that will allow you to change the parameters. See the section below.)*
+- This will take a split-second to load; because it runs a thousand iterations, and across seven Python models, but it will then show you the performance/execution times. *(Alternatively, use [ReqBin](https://reqbin.com/), or [Postman](https://www.postman.com/) for the ``/get_model`` POST request that will allow you to change the parameters. See the section below.)*
 ---
 
 [![skills](https://skillicons.dev/icons?i=python,flask,java,typescript,js,html,css,react,babel,redux,npm,webpack,jest,sqlite,md,git&perline=8)](https://skillicons.dev)
@@ -188,6 +188,7 @@ I have not pursued this far, because that would be beyond remit, and do not prom
 # Flask API
 ![flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 ![json](https://img.shields.io/badge/json-5E5C5C?style=for-the-badge&logo=json&logoColor=white)
+![sqlite3](https://img.shields.io/badge/Sqlite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 
 PythonAnywhere is free hosting (yay!) but cheap or free isn't always best. It does not support ASGI, so no FastAPI, which would have auto-generate lovely Swagger docs if I declared the structures of the data types.
 
@@ -256,7 +257,6 @@ PythonAnywhere is free hosting (yay!) but cheap or free isn't always best. It do
 ![redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
 ![jest](https://img.shields.io/badge/Jest-8A4182?style=for-the-badge&logo=Jest&logoColor=white)
 ![webpack](https://img.shields.io/badge/Webpack-8DD6F9?style=for-the-badge&logo=Webpack&logoColor=white)
-![sqlite3](https://img.shields.io/badge/Sqlite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
 ![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
 
 Very crude app. I have not pursued this far, because that would be beyond remit. If this were for production, I would add more tests, liniting, and even setup Storybook, etc.. This is outside the remit, and just hacked together to show the chart.

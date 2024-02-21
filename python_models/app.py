@@ -46,22 +46,38 @@ def close_connection(exception):
 
 @app.route('/')
 def index():
-    return "I am the Random Generators API. Either call: '/run_model/<random_nums><probabilities>'; or, '/performance_data/'."
+    return {"I am the Random Generators API.":"Either call: POST '/run_model/' with params in Body: <random_nums><probabilities>'; or, 'GET /performance_data/'."}
 
-# curl -X POST -H "Content-Type: application/json" -d '{"random_nums":[-1,0,1,2,3],"probabilities":[0.01,0.3,0.58,0.1,0.01]}' http://[domain].com/run_model
-@app.route('/run_model/', methods=['POST'])
+@app.route('/run_model', methods=['POST'])
 def run_model():
-    data = request.json
-    random_nums = data.get('random_nums', [])
-    probabilities = data.get('probabilities', [])
-    random_gen = RandomGenBinarySearch(random_nums, probabilities)
-    num_iterations = 100
-    results = []
-    for _ in range(num_iterations):
-        results.append(random_gen.next_num())
-    return jsonify(results)
+    if request.method == 'POST':
+        req_data_json = request.get_json(force=True)
+        random_nums = req_data_json.get('randomNums', '')
+        probabilities = req_data_json.get('probabilities', '')
+        if random_nums!=None and probabilities!=None:
+            random_gen = RandomGenBinarySearch(random_nums, probabilities)
+            num_iterations = 100
+            results = []
+            for ix in range(num_iterations):
+                x = random_gen.next_num()
+                if((int(ix)+1) == num_iterations):
+                    results = {"i": ix, "num_iterations": num_iterations, "nums": x}
+            return jsonify(results)
+        else:
+            return jsonify({"Please define the parameters": "Either 'random_nums' or 'probabilities' is empty"})
+    else:
+        return jsonify({
+                "I only accept POST requests.": "Call me from https://reqbin.com/ >> put these parameters in the POST body"
+            },
+            {
+                "randomNums": [-1, 0, 1, 2, 3],
+                "probabilities": [0.01, 0.3, 0.58, 0.1, 0.01]
+            },
+            {
+                "Or, use CURL": "curl -X POST -H \"Content-Type: application/json\" -d '{\"random_nums\":[-1,0,1,2,3],\"probabilities\":[0.01,0.3,0.58,0.1,0.01]}' https://mathematicuslucian.eu.pythonanywhere.com/run_model"
+            })
 
-@app.route('/run_performance/', methods=['GET'])
+@app.route('/run_performance', methods=['GET'])
 def run_performance():
     # Test data
     random_nums = [-1, 0, 1, 2, 3]
@@ -80,7 +96,7 @@ def run_performance():
     # performance_results_data["message"] = "Data saved successfully."
     return jsonify(performance_results_data)
 
-@app.route('/performance_results_all/', methods=['GET'])
+@app.route('/performance_results_all', methods=['GET'])
 def performance_results_all():
     try:
         db = get_db()
@@ -101,9 +117,9 @@ def performance_results_all():
                         formatted[model][iteration].append(exec_speed)
         return jsonify(formatted)
     except:
-        return jsonify({"No":"database"})
+        return jsonify({"Error":"Cannot fetch from database; or cannot format data"})
 
-@app.route('/performance_results_avg/', methods=['GET'])
+@app.route('/performance_results_avg', methods=['GET'])
 def performance_results_avg():
     try:
         db = get_db()
@@ -123,13 +139,16 @@ def performance_results_avg():
                         if iteration not in formatted[model]:
                             formatted[model][iteration] = []
                         formatted[model][iteration].append(exec_speed)
-        for modelx, iterations in formatted.items():
-            for iteration, times in iterations.items():
+        for modelx, several_times_per_iteration_level in formatted.items():
+            averages[modelx] = {}
+            for iteration_level, times in several_times_per_iteration_level.items():
+                averages[modelx][iteration_level] = {}
+                averages[modelx][iteration_level]["times"] = times
                 avg_time = sum(times) / len(times)
-                averages[modelx] = avg_time
+                averages[modelx][iteration_level]["avg"] = avg_time
         return jsonify(averages)
     except:
-        return jsonify({"No":"database"})
+        return jsonify({"Error":"Cannot fetch from database; or cannot format data"})
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)

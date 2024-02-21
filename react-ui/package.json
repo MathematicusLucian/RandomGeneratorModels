@@ -7,7 +7,10 @@
   "author": "MathematicusLucian.com",
   "dependencies": {
     "@testing-library/react": "^14.2.1",
-    "axios": "0.18.0",
+    "@types/node": "^20.11.19",
+    "@types/react": "^18.2.57",
+    "@types/react-dom": "^18.2.19",
+    "axios": "^0.18.0",
     "react": "^18.2.0",
     "react-dom": "18.2.0",
     "react-table": "^7.8.0",
@@ -15,8 +18,8 @@
     "ts-node": "^10.9.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "FAST_REFRESH=false react-scripts start",
+    "build": "FAST_REFRESH=false react-scripts build && serve -s build",
     "test": "jest",
     "eject": "react-scripts eject"
   },
