@@ -63,15 +63,15 @@ As the output of the generator is random, this limits the test options, i.e. I c
 ## 🌟 Performance Test Engine (Python)
 In ``performance_test_engine.py``.
 
-I need to evalute these models, and find out their actual speeds, to compare their performance.
+- **Sample implementation:** In the file ``performance_test.py``. This can be triggered from the Flask API service, or you can call it from the CLI: ``python3 performance_test.py``
 
-Current result, shows Binary Search is the faster model:
+- **Purpose:** I need to evalute these models, and find out their actual speeds, to compare their performance. The performance test is conducted for all the Python approaches, with or without a constructor, and whether or not they have third-party libraries.
+
+- **Results:** Current result, shows Binary Search is the faster model:
 
     {'Basic': [0.010535955429077148], 'Zip': [0.0045108795166015625], 'Random Choices': [0.006726980209350586], 'Arg Max': [0.017208099365234375], 'Numpy B Search wv EH': [0.017487287521362305], 'Numpy Binary Search': [0.011810064315795898], 'Binary Search': [0.006208896636962891]}
 
-The performance test is conducted for all the Python approaches, with or without a constructor, and whether or not they have third-party libraries.
-
-Need to plot this on a graph (MatPlotLib? Maybe a graph on React.) FInd an excuse to throw in some Pandas 🐼🐼🐼
+- **Opportunities:** Need to plot this on a graph (MatPlotLib? Maybe a graph on React.) FInd an excuse to throw in some Pandas 🐼🐼🐼
 
 - ***Crude Factory:*** *I didn't want to write the same test code over and over, so I hacked together a crude factory method approach to feed the classes into a function, that generates each in turn, running the tests. This could be prettier, but I will stop there, because I have already exceeded the remit.*
 
