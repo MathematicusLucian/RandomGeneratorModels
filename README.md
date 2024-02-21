@@ -153,5 +153,11 @@ The file ``tests-junit.java``
 # Typescript
 **This has not received as much attention as the Python approach.** I have not pursued this far, because that would be beyond remit. Provides a TypeScript implementation of the random number generator service. Computes the cumulative probability and selects a random number based on the probabilities.
 
-### <img src="./assets/Jest.svg" width="20" height="20" /> Unit tests
+### Compile the TypeScript code
+``tsc randomGen.ts``
+
+### Run the TypeScript code using Node.js
+I have not pursued this far, because that would be beyond remit, and do not promise that it functions well:``ts-node RandomGen.ts``
+
+### Unit tests
 I have not pursued this far, because that would be beyond remit, and do not promise that it functions well:``npm test``
