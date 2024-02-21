@@ -5,7 +5,10 @@ const ERROR = 2;
 const WARN = 1;
 
 module.exports = {
-  extends: "eslint:recommended",
+  extends: [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
   env: {
     es6: true,
   },

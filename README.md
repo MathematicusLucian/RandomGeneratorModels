@@ -1,8 +1,8 @@
 # 🌟 RandomGeneratorModels 🌟 🚀 
 
-**⚡️ LIVE ⚡️ The models are hosted, and they can be triggered with this Flask API endpoint:** 
+**🏄‍♂️ WEB UI 🏄‍♂️** [Click here to open the React UI for the Python models](https://rgmodels-eac2d.web.app/)
 
-[Click here to open the ``/run_performance`` endpoint](https://mathematicuslucian.eu.pythonanywhere.com/run_performance)
+**⚡️ LIVE API ⚡️** The models are hosted, and they can be triggered with this Flask API endpoint: [Click here to open the ``/run_performance`` endpoint](https://mathematicuslucian.eu.pythonanywhere.com/run_performance)
 
 - This will take a split-second to load; because it runs a thousand iterations, and across seven Python models, but it will then show you the performance/execution times. *(Alternatively, use [ReqBin](https://reqbin.com/), or [Postman](https://www.postman.com/) for the ``/get_model`` POST request that will allow you to change the parameters. See the section below.)*
 ---
@@ -260,11 +260,13 @@ To run the React UI and the random generator services locally, follow these step
 
 Tempted to setup Docker, and also to deploy this as an AWS Lambda, but as the Flask API service is outside the remit, I have simply just put it on a free PythonAnywhere account.
 
-**UI URL**
+**🏄‍♂️ WEB UI 🏄‍♂️** 
 
-``TBD``
+Hosted on Google Firebase
 
-**Flask endpoints**
+[https://rgmodels-eac2d.web.app/](https://rgmodels-eac2d.web.app/)
+
+**API: Flask endpoints**
 
 ``https://mathematicuslucian.eu.pythonanywhere.com/run_model``
 
