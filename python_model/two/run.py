@@ -1,4 +1,4 @@
-from withconstructor import RandomGenZip
+from zippy import RandomGenZip
 
 if __name__ == '__main__':
     # Example usage and test cases

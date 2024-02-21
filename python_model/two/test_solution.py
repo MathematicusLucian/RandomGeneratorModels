@@ -1,5 +1,5 @@
 import pytest
-from withconstructor import RandomGenZip
+from zippy import RandomGenZip
 
 __random_nums = [-1, 0, 1, 2, 3]
 __probs = [0.01, 0.3, 0.58, 0.1, 0.01]
