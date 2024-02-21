@@ -1,37 +1,47 @@
 # 🌟 RandomGeneratorModels 🌟 🚀 
-- **⚡️ LIVE ⚡️ The models are hosted, and they can be triggered with this Flask API endpoint:** [Click here to open the ``/run_performance`` endpoint](https://mathematicuslucian.eu.pythonanywhere.com/run_performance). This will take a split-second to load; because it runs a thousand iterations, across seven Python models, but it will then show you the performance/execution times. *(Or, use Postman for the ``/get_model`` POST request that will allow you to change the parameters. See the section below.)*
+
+**⚡️ LIVE ⚡️ The models are hosted, and they can be triggered with this Flask API endpoint:** 
+
+[Click here to open the ``/run_performance`` endpoint](https://mathematicuslucian.eu.pythonanywhere.com/run_performance)
+
+- This will take a split-second to load; because it runs a thousand iterations, and across seven Python models, but it will then show you the performance/execution times. *(Or, use Postman for the ``/get_model`` POST request that will allow you to change the parameters. See the section below.)*
 ---
+
+[![skills](https://skillicons.dev/icons?i=python,flask,java,typescript,js,html,css,react,babel,redux,npm,webpack,jest,sqlite,md,git&perline=8)](https://skillicons.dev)
+
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Python Models 🐍🐍🐍 - including with Numpy](#python)
+2. [Python Models (x7) 🐍🐍🐍 - including with Numpy](#python)
 
     a. [First line/unit testing/TDD: PyTest](#pytest)
 
-    b. [🌟 Python Performance Tests 📈](#python-performance-tests)
+    b. [🌟 Python Performance Tests 📈 - utilises Panda, and MatPlotLib](#python-performance-tests)
 
     c. [VirtualEnv](#virtualenv)
 
     d. [Requirements File](#generate-requirements-file)
 
-3. [Java](#java)
-4. [TypesScript](#typescript)
+***Work-in-Progress*** *(These fall outside of the remit. I saw may Quant roles ask for React and Python, and wanted to demonstrate that I can build a fullstack app.)*
 
-**Work-in-Progress** (Will leave these; because outside of the remit. I saw may Quant roles ask for React and Python, and wanted to demonstrate that I can build a fullstack app.)
-
+3. [Java Model](#java)
+4. [TypesScript Model](#typescript)
 5. [Flask API](#flask-api)
 6. [React UI](#react-ui)
 7. [Deployment](#deployment)
 ---
 
 # Introduction
-The random generator services aim to generate random numbers based on the given probabilities. The probabilities are used to determine the likelihood of each random number occurring. Python was opted for. *(There are also implementations in Java, and TypeScript, though less time was put into these solutions.)* This README file provides an explanation of the approach, and some instructions for setting up, running, testing, and deploying the random generator services in different languages. 
+The random generator services aim to generate random numbers based on the given probabilities. The probabilities are used to determine the likelihood of each random number occurring. Python was opted for. *(There are also implementations in Java, and TypeScript, though less time was put into these solutions. I wrote a WebAssembly model with Rust, but I have not committed this to the repo.)* This README file provides an explanation of the approach, and some instructions for setting up, running, testing, and deploying the random generator services in different languages. 
 
 *(Nb. these are within the same repo for simplicity when it comes to sharing this with whomever will review this; but if this was a real project, I would be inclined to have microservices in seperate repos, rather than a monorep.)*
 
 ![chart of performance speeds](./assets/generator_perf_test_results.png)
 
 # Python Models 🐍🐍🐍
+![python](https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue)
+![numpy](https://img.shields.io/badge/Numpy-777BB4?style=for-the-badge&logo=numpy&logoColor=white)
+
 This repo provides and compares the performance of seven Python models of a random number generator service. 
 
 The solutions are as folows:
@@ -71,26 +81,28 @@ As the output of the generator is random, this limits the test options, i.e. I c
 ***🏭 Crude Factory:*** *I didn't want to write the same test code over and over, so I hacked together a crude factory method approach to feed the classes into a function, that generates each in turn, running the tests. If any fail, it gives the name of the respective class. This could be prettier, but I will stop there, because I have already exceeded the remit.*
 
 ## 🌟 Performance Test Engine (Python) 📈
+![pandas](https://img.shields.io/badge/Pandas-2C2D72?style=for-the-badge&logo=pandas&logoColor=white) **MatPlotLib**
+
 In ``performance_test_engine.py``.
 
 - **Sample implementation:** In the file ``performance_test.py``. This can be triggered from a FASTAPI or Flask API service, or you can call it from the CLI: ``python3 performance_test.py``
 
 - **Purpose:** I need to evalute these models, and find out their actual speeds, to compare their performance. The performance test is conducted for all the Python approaches, with or without a constructor, and whether or not they have third-party libraries. In all cases, the same test data is utilised (and prepared as a Pandas dataframe):
 
-    #Test data
-    random_nums = [-1, 0, 1, 2, 3]
-    probabilities = [0.01, 0.3, 0.58, 0.1, 0.01]
-    iteration_levels = [10, 100, 1000, 10000]  # Add more levels as required
-    tolerance = 1.0
-    PYTHON_RANDOM_GEN_CLASSES = [
-        { "class": RandomGen, "name": 'Basic' },
-        { "class": RandomGenZip, "name": 'Zip' },
-        { "class": RandomGenRandomChoices, "name": 'Random Choices' },
-        { "class": RandomGenNumpyArgMax, "name": 'Arg Max' },
-        { "class": BinaryNumpyWithErrorHandling, "name": 'Numpy B Search wv EH' },
-        { "class": RandomGenBinarySearchNumpy, "name": 'Numpy Binary Search' },
-        { "class": RandomGenBinarySearch, "name": 'Binary Search' }
-    ]
+        #Test data
+        random_nums = [-1, 0, 1, 2, 3]
+        probabilities = [0.01, 0.3, 0.58, 0.1, 0.01]
+        iteration_levels = [10, 100, 1000, 10000]  # Add more levels as required
+        tolerance = 1.0
+        PYTHON_RANDOM_GEN_CLASSES = [
+            { "class": RandomGen, "name": 'Basic' },
+            { "class": RandomGenZip, "name": 'Zip' },
+            { "class": RandomGenRandomChoices, "name": 'Random Choices' },
+            { "class": RandomGenNumpyArgMax, "name": 'Arg Max' },
+            { "class": BinaryNumpyWithErrorHandling, "name": 'Numpy B Search wv EH' },
+            { "class": RandomGenBinarySearchNumpy, "name": 'Numpy Binary Search' },
+            { "class": RandomGenBinarySearch, "name": 'Binary Search' }
+        ]
 
 - **Pandas 🐼🐼🐼:** The ``generate_test_data`` function (in the utils folder) runs the performance tests. It returns it as a Pandas DataFrame, featuring the execution times for each generator to each defined level of iteration. I implemented with Pandas to handle the input data in a more structured and efficient way. (Or perhaps an excuse to demonstrate that I can utilise these third-party libraries.)
 
@@ -98,21 +110,21 @@ In ``performance_test_engine.py``.
 
 - **Results:** Current result, shows Binary Search is the faster model:
 
-    ('Basic', [10, 100, 1000, 10000], [0.0027840137481689453, 0.0027718544006347656, 0.0028028488159179688, 0.0027649402618408203])
+        ('Basic', [10, 100, 1000, 10000], [0.0027840137481689453, 0.0027718544006347656, 0.0028028488159179688, 0.0027649402618408203])
 
-    ('Zip', [10, 100, 1000, 10000], [0.0032629966735839844, 0.003304004669189453, 0.0032529830932617188, 0.0032510757446289062])
+        ('Zip', [10, 100, 1000, 10000], [0.0032629966735839844, 0.003304004669189453, 0.0032529830932617188, 0.0032510757446289062])
 
-    ('Random Choices', [10, 100, 1000, 10000], [0.00604701042175293, 0.006039142608642578, 0.005906820297241211, 0.005939960479736328])
+        ('Random Choices', [10, 100, 1000, 10000], [0.00604701042175293, 0.006039142608642578, 0.005906820297241211, 0.005939960479736328])
 
-    ('Arg Max', [10, 100, 1000, 10000], [0.014555931091308594, 0.014529943466186523, 0.01449441909790039, 0.014703035354614258])
+        ('Arg Max', [10, 100, 1000, 10000], [0.014555931091308594, 0.014529943466186523, 0.01449441909790039, 0.014703035354614258])
 
-    ('Numpy B Search wv EH', [10, 100, 1000, 10000], [0.010276079177856445, 0.01022195816040039, 0.0103607177734375, 0.010721921920776367])
+        ('Numpy B Search wv EH', [10, 100, 1000, 10000], [0.010276079177856445, 0.01022195816040039, 0.0103607177734375, 0.010721921920776367])
 
-    ('Numpy Binary Search', [10, 100, 1000, 10000], [0.010213851928710938, 0.010170936584472656, 0.0103302001953125, 0.010263204574584961])
+        ('Numpy Binary Search', [10, 100, 1000, 10000], [0.010213851928710938, 0.010170936584472656, 0.0103302001953125, 0.010263204574584961])
 
-    ('Binary Search', [10, 100, 1000, 10000], [0.002596139907836914, 0.0026030540466308594, 0.0026056766510009766, 0.002586841583251953])
+        ('Binary Search', [10, 100, 1000, 10000], [0.002596139907836914, 0.0026030540466308594, 0.0026056766510009766, 0.002586841583251953])
 
-**Opportunities:** I have gone beyond the remit already, so restrain my desire to create a broader sample. There may be less potential bias if the performance tests were run again for all input sizes, but with several different sets of random numbers and probabilities. 
+- **Opportunities:** I have gone beyond the remit already, so restrain my desire to create a broader sample. There may be less potential bias if the performance tests were run again for all input sizes, but with several different sets of random numbers and probabilities. 
 
 - ***🏭 Crude Factory:*** *I didn't want to write the same test code over and over, so I hacked together a crude factory method approach to feed the classes into a function, that generates each in turn, running the tests. This could be prettier, but I will stop there, because I have already exceeded the remit.*
 
@@ -144,9 +156,9 @@ Then: ``pip freeze > requirements.txt``
 Install from a requirements file: ``pip install -r requirements.txt``
 
 # Java
-**This has not received as much attention as the Python approach.** I have not pursued this far, because that would be beyond remit.
+![junit](https://img.shields.io/badge/Junit5-25A162?style=for-the-badge&logo=junit5&logoColor=white)
 
-Provides a Java implementation of the random number generator service. Computes the cumulative probability and selects a random number based on the probabilities.
+**This has not received as much attention as the Python approach.** I have not pursued this far, because that would be beyond remit. Provides a Java implementation of the random number generator service. Computes the cumulative probability and selects a random number based on the probabilities.
 
 ### Compile the Java code
 I have not pursued this far, because that would be beyond remit, and do not promise that it functions well:
@@ -159,6 +171,9 @@ I have not pursued this far, because that would be beyond remit, and do not prom
 The file ``tests-junit.java``
 
 # Typescript
+![typescript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)
+![javascript](https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E)
+
 **This has not received as much attention as the Python approach.** I have not pursued this far, because that would be beyond remit. Provides a TypeScript implementation of the random number generator service. Computes the cumulative probability and selects a random number based on the probabilities.
 
 ### Compile the TypeScript code
@@ -167,10 +182,13 @@ The file ``tests-junit.java``
 ### Run the TypeScript code using Node.js
 I have not pursued this far, because that would be beyond remit, and do not promise that it functions well:``ts-node RandomGen.ts``
 
-### Unit tests
+### Unit Tests
 I have not pursued this far, because that would be beyond remit, and do not promise that it functions well:``npm test``
 
 # Flask API
+![flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+![json](https://img.shields.io/badge/json-5E5C5C?style=for-the-badge&logo=json&logoColor=white)
+
 PythonAnywhere is free hosting (yay!) but cheap or free isn't always best. It does not support ASGI, so no FastAPI, which would have auto-generate lovely Swagger docs if I declared the structures of the data types.
 
 - **Localhost:** ``python3 app.py``
@@ -186,18 +204,18 @@ PythonAnywhere is free hosting (yay!) but cheap or free isn't always best. It do
 - Requires to which expects two parameters `random_nums`, and `probabilities`, i.e. to some degree this is dynamic. (Allows for a UI to be employed so that a user may pass through different values.)
 
 - Example reponse:
-    
-    {
-        "Arg Max": 0.0810598267449273,
-        "Basic": 0.018863810433281794,
-        "Binary Search": 0.020829174253675673,
-        "Numpy B Search wv EH": 0.0705918206108941,
-        "Numpy Binary Search": 0.08169968922932942,
-        "Random Choices": 0.04187014367845324,
-        "Zip": 0.017680380079481337
-    }
+        
+        {
+            "Arg Max": 0.0810598267449273,
+            "Basic": 0.018863810433281794,
+            "Binary Search": 0.020829174253675673,
+            "Numpy B Search wv EH": 0.0705918206108941,
+            "Numpy Binary Search": 0.08169968922932942,
+            "Random Choices": 0.04187014367845324,
+            "Zip": 0.017680380079481337
+        }
 
-- An improvement would be not to hardcode which model to run, but present a Select element to the user (in the UI) so they determine which class to run (or even an option for the app to determine such according to upon the exec times in the database) - but this Flask API microservice is already beyond the remit.
+- **Opportunity:** An improvement would be not to hardcode which model to run, but present a Select element to the user (in the UI) so they determine which class to run (or even an option for the app to determine such according to upon the exec times in the database) - but this Flask API microservice is already beyond the remit.
 
 ``/run_performance``: Runs each model.
 
@@ -217,21 +235,30 @@ PythonAnywhere is free hosting (yay!) but cheap or free isn't always best. It do
 
 - Example response:
 
-    {
-        "Arg Max": 0.0810598267449273,
-        "Basic": 0.018863810433281794,
-        "Binary Search": 0.020829174253675673,
-        "Numpy B Search wv EH": 0.0705918206108941,
-        "Numpy Binary Search": 0.08169968922932942,
-        "Random Choices": 0.04187014367845324,
-        "Zip": 0.017680380079481337
-    }
+        {
+            "Arg Max": 0.0810598267449273,
+            "Basic": 0.018863810433281794,
+            "Binary Search": 0.020829174253675673,
+            "Numpy B Search wv EH": 0.0705918206108941,
+            "Numpy Binary Search": 0.08169968922932942,
+            "Random Choices": 0.04187014367845324,
+            "Zip": 0.017680380079481337
+        }
 
 ``/performance_results_all``: This is similar to ``/performance_results_avg`` but returns from the Sqlite3 database ALL execution times per mode, per iteration level.
 
 - (GET request)
 
-### React UI
+# React UI
+![react](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![babel](https://img.shields.io/badge/Babel-F9DC3E?style=for-the-badge&logo=babel&logoColor=white)
+![eslint](https://img.shields.io/badge/eslint-3A33D1?style=for-the-badge&logo=eslint&logoColor=white)
+![redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)
+![jest](https://img.shields.io/badge/Jest-8A4182?style=for-the-badge&logo=Jest&logoColor=white)
+![webpack](https://img.shields.io/badge/Webpack-8DD6F9?style=for-the-badge&logo=Webpack&logoColor=white)
+![sqlite3](https://img.shields.io/badge/Sqlite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+![npm](https://img.shields.io/badge/npm-CB3837?style=for-the-badge&logo=npm&logoColor=white)
+
 Very crude app. I have not pursued this far, because that would be beyond remit. If this were for production, I would add more tests, liniting, and even setup Storybook, etc.. This is outside the remit, and just hacked together to show the chart.
 
 **Local Setup**
@@ -240,6 +267,8 @@ To run the React UI and the random generator services locally, follow these step
 2. **Run the development server** ``npm run build && serve -s build``, and then open http://localhost:3000 in your browser.
 
 **Webpack:** For a production app, this would have environments established, e.g. dev, staging, and prod.
+
+**Opportunities:** Implement [axios](https://axios-http.com/docs/intro) for asynchronous HTTTP requests; and GraphQL. *(Kafka would be unnecessary, but could be nice to demonstrate it; especially if were to deploy this Flask app as multiple functions/lambdas.)* Use styling, .e.g. some Tailwind CSS based components. This could be server-side rendered (Next.js, etc.)
 
 ## Deployment 📦📦📦
 
