@@ -25,9 +25,12 @@ Python was opted for.
 This repo provides and compares the performance of two Python models of a random number generator service. 
 
 The solutions are as folows:
-1. **Basic:** Second-fastest. Simple implementation. Quickly thrown together, without third-party libraries. Iterates through probabilities to find the appropriate random number.
+1. **Basic:** Simple implementation. Quickly thrown together, without third-party libraries. Iterates through probabilities to find the appropriate random number.
 ### OOP with a constructor
-2. **Zip:** There is encouragement in the exercise critieria to look at making the solution more "pythonic". I added a constructor. I also used 'zip' to align the RandomNums and Probabilites arrays, but this was slower than the initial crude approach.
+2. **Zip:** There is encouragement in the exercise critieria to look at making the solution more "pythonic". I added a constructor. I also used 'zip' to align the RandomNums and Probabilites arrays, but this was slower (or seems so) than the initial crude approach.
+3. **Random Choices:** I then added Random Choices.
+4. **Arg Max & Numpy:** Tried the third-party library Numpy to see if its array functions would speed up the model.
+
 
 ``__init__`` utilised so that these are modules that can be referenced by the unit tests, and even hypothetically, Flask or FastAPI, or a performance tests.
 

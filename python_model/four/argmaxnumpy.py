@@ -1,26 +1,22 @@
-import random
+import numpy as np
 
 class RandomGenNumpyArgMax:
-    _random_nums = []
-    _probabilities = [] 
-    _results = {}
-
-    # Added a constructor
     def __init__(self, random_nums, probabilities):
-        """
-        Initializes the RandomGen object with random numbers and their corresponding probabilities.
-        """
-        self._random_nums = random_nums
-        self._probabilities = probabilities
+        self._random_nums = np.array(random_nums)
+        self._probabilities = np.array(probabilities)
+        self._cumulative_prob = np.cumsum(self._probabilities, dtype=float)
         self._results = {}
+        self.validate_probabilities()
+
+    def validate_probabilities(self):
+        prob_sum = self._cumulative_prob[len(self._cumulative_prob)-1]
+        if not np.isclose(prob_sum, 1.0):
+            raise ValueError("Sum of probabilities required to be 1")
 
     def next_num(self):
-        """
-        Returns one of the randomNums. When this method is called multiple
-        times over a long period, it should return the numbers roughly with
-        the initialized probabilities.
-        """
-        num = random.choices(self._random_nums, weights=self._probabilities)[0]
+        rand_num = np.random.random()
+        selected_num_index = np.argmax(rand_num < self._cumulative_prob)
+        num = self._random_nums[selected_num_index]
         if num in self._results:
             self._results[num] += 1
         else:
