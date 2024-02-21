@@ -6,7 +6,7 @@
 
     a. [First line/unit testing/TDD: PyTest](#pytest)
 
-    b. [🌟 Python Performance Tests](#python-performance-tests)
+    b. [🌟 Python Performance Tests 📈](#python-performance-tests)
 
     c. [VirtualEnv](#virtualenv)
 
@@ -14,8 +14,9 @@
 
 3. [Java](#java)
 4. [TypesScript](#typescript)
-4. [Flask API](#flask-api)
-4. [React UI](#react-ui)
+5. [Flask API](#flask-api)
+6. [React UI](#react-ui)
+7. [Deployment](#deployment)
 ---
 
 # Introduction
@@ -49,7 +50,7 @@ The solutions are as folows:
 ### Run Python model ONE - without additional libraries
 ``python random_gen.py``
 
-## First line/unit testing/TDD: PyTest
+## 👩‍🔬 First line/unit testing/TDD: PyTest
 There is a file ``test_solution_all.py`` in the main 'python_models' folder that will call all 7 Python apps, and run tests on them. (Also, individual test files, if you prefer, in each folder, beside the respective Python app.)
 
 Navigate to the directory of one of the models: ``pytest --html=report.html test_solution.py``
@@ -62,9 +63,9 @@ The unit tests are conducted for all the Python approaches, with or without a co
 
 As the output of the generator is random, this limits the test options, i.e. I cannot test that a certain integer value is returned. Thinking of financial scenarios, with considerations such as variability, and velocity, where deviance, such as beyond the efficient frontier, or high/low fluctuations in stock prices, may be critical, I tested that the count of each 'random number' is within a tolerance of its respective expected probability.
 
-***Crude Factory:*** *I didn't want to write the same test code over and over, so I hacked together a crude factory method approach to feed the classes into a function, that generates each in turn, running the tests. If any fail, it gives the name of the respective class. This could be prettier, but I will stop there, because I have already exceeded the remit.*
+***🏭 Crude Factory:*** *I didn't want to write the same test code over and over, so I hacked together a crude factory method approach to feed the classes into a function, that generates each in turn, running the tests. If any fail, it gives the name of the respective class. This could be prettier, but I will stop there, because I have already exceeded the remit.*
 
-## 🌟 Performance Test Engine (Python)
+## 🌟 Performance Test Engine (Python) 📈
 In ``performance_test_engine.py``.
 
 - **Sample implementation:** In the file ``performance_test.py``. This can be triggered from a FASTAPI or Flask API service, or you can call it from the CLI: ``python3 performance_test.py``
@@ -88,7 +89,7 @@ In ``performance_test_engine.py``.
 
 - **Pandas 🐼🐼🐼:** The ``generate_test_data`` function (in the utils folder) runs the performance tests. It returns it as a Pandas DataFrame, featuring the execution times for each generator to each defined level of iteration. I implemented with Pandas to handle the input data in a more structured and efficient way. (Or perhaps an excuse to demonstrate that I can utilise these third-party libraries.)
 
-- **Chart with MatPlotLib** I employed MatPlotLib to generate a chart (above in the README) of the performance results. ``save_plot_chart``: This line runs the function to save the chart to file (when running on local machine; disabled on the server.) Could dump this image data in a different format into a database.
+- **📈 Chart with MatPlotLib** I employed MatPlotLib to generate a chart (above in the README) of the performance results. ``save_plot_chart``: This line runs the function to save the chart to file (when running on local machine; disabled on the server.) Could dump this image data in a different format into a database.
 
 - **Results:** Current result, shows Binary Search is the faster model:
 
@@ -108,7 +109,7 @@ In ``performance_test_engine.py``.
 
 **Opportunities:** I have gone beyond the remit already, so restrain my desire to create a broader sample. There may be less potential bias if the performance tests were run again for all input sizes, but with several different sets of random numbers and probabilities. 
 
-- ***Crude Factory:*** *I didn't want to write the same test code over and over, so I hacked together a crude factory method approach to feed the classes into a function, that generates each in turn, running the tests. This could be prettier, but I will stop there, because I have already exceeded the remit.*
+- ***🏭 Crude Factory:*** *I didn't want to write the same test code over and over, so I hacked together a crude factory method approach to feed the classes into a function, that generates each in turn, running the tests. This could be prettier, but I will stop there, because I have already exceeded the remit.*
 
 ## VirtualEnv
 A virtual environment (to ensure that the dependencies for the project are isolated from the system-wide Python installation, so as to facilitate distribution of the project.)
@@ -234,3 +235,21 @@ To run the React UI and the random generator services locally, follow these step
 2. **Run the development server** ``npm run build && serve -s build``, and then open http://localhost:3000 in your browser.
 
 **Webpack:** For a production app, this would have environments established, e.g. dev, staging, and prod.
+
+## Deployment 📦📦📦
+
+Tempted to setup Docker, and also to deploy this as an AWS Lambda, but as the Flask API service is outside the remit, I have simply just put it on a free PythonAnywhere account.
+
+**UI URL**
+
+``TBD``
+
+**Flask endpoints**
+
+``https://mathematicuslucian.eu.pythonanywhere.com/run_model``
+
+``https://mathematicuslucian.eu.pythonanywhere.com/run_performance``
+
+``https://mathematicuslucian.eu.pythonanywhere.com/performance_results_avg``
+
+``https://mathematicuslucian.eu.pythonanywhere.com/performance_results_all``
