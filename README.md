@@ -1,4 +1,6 @@
 # 🌟 RandomGeneratorModels 🌟 🚀 
+- ⚡️ LIVE ⚡️ The model is hosted, and can be triggered with a Flask API endpoint: [Click here to open the endpoint](https://mathematicuslucian.eu.pythonanywhere.com/run_model) (Or, call it with Postman.)
+---
 
 ## Table of Contents
 1. [Introduction](#introduction)
