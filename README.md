@@ -11,7 +11,7 @@
 
     c. [Requirements File](#generate-requirements-file)
 
-
+3. [Java](#java)
 ---
 
 # Introduction
@@ -86,3 +86,18 @@ A requirements.txt file containing the dependencies installed to the virtual env
 Then: ``pip freeze > requirements.txt``
 
 Install from a requirements file: ``pip install -r requirements.txt``
+
+# Java
+**This has not received as much attention as the Python approach.** I have not pursued this far, because that would be beyond remit.
+
+Provides a Java implementation of the random number generator service. Computes the cumulative probability and selects a random number based on the probabilities.
+
+### Compile the Java code
+I have not pursued this far, because that would be beyond remit, and do not promise that it functions well:
+``javac RandomGen.java``
+
+### Run the Java application
+I have not pursued this far, because that would be beyond remit, and do not promise that it functions well: ``java RandomGen``
+
+### <img src="./assets/JUnit.svg" width="20" height="20" /> Unit Tests
+The file ``tests-junit.java``
