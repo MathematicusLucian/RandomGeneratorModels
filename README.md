@@ -12,6 +12,7 @@
     c. [Requirements File](#generate-requirements-file)
 
 3. [Java](#java)
+4. [TypsScript](#typescript)
 ---
 
 # Introduction
@@ -99,5 +100,10 @@ I have not pursued this far, because that would be beyond remit, and do not prom
 ### Run the Java application
 I have not pursued this far, because that would be beyond remit, and do not promise that it functions well: ``java RandomGen``
 
-### <img src="./assets/JUnit.svg" width="20" height="20" /> Unit Tests
+### Unit Tests
 The file ``tests-junit.java``
+
+# Typescript
+
+### <img src="./assets/Jest.svg" width="20" height="20" /> Unit tests
+I have not pursued this far, because that would be beyond remit, and do not promise that it functions well:``npm test``
