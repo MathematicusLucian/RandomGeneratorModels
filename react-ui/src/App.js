@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./app.css";
 import TimeSeriesChart from './TimeSeriesChart';
+import Table from './Table';
 
 const App = (props) => {
   const [randomNums, setRandomNums] = useState(props.randomNums);
@@ -67,9 +68,9 @@ const App = (props) => {
           <label htmlFor="probabilities">Probabilities:</label>
           <input type="text" id="probabilities" value={probabilities} onChange={handleProbabilitiesChange} />
         </div>
-        <div class="formElement">
-          <button id="btn_run_model" onClick={handleClick}>Run the most optimal model</button>
-        </div>
+      </div>
+      <div class="formElement">
+        <button id="btn_run_model" onClick={handleClick}>Results of the Most Optimal Model:</button>
       </div>
       <div id="modelRunOutcome">
         <h2>Random Results (most efficient model)</h2>
@@ -83,7 +84,9 @@ const App = (props) => {
             <TimeSeriesChart data={avgPerformanceOutcome} />
           </>
           </div>
-          <div id="avgResults">{avgPerformanceOutcome}</div>
+          <> 
+            <Table data={avgPerformanceOutcome} />
+          </>
       </div>
     </div>
   );
