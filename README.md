@@ -65,7 +65,24 @@ In ``performance_test_engine.py``.
 
 - **Sample implementation:** In the file ``performance_test.py``. This can be triggered from the Flask API service, or you can call it from the CLI: ``python3 performance_test.py``
 
-- **Purpose:** I need to evalute these models, and find out their actual speeds, to compare their performance. The performance test is conducted for all the Python approaches, with or without a constructor, and whether or not they have third-party libraries.
+- **Purpose:** I need to evalute these models, and find out their actual speeds, to compare their performance. The performance test is conducted for all the Python approaches, with or without a constructor, and whether or not they have third-party libraries. In all cases, the same test data is utilised (and prepared as a Pandas dataframe):
+
+    #Test data
+    random_nums = [-1, 0, 1, 2, 3]
+    probabilities = [0.01, 0.3, 0.58, 0.1, 0.01]
+    iteration_levels = [10, 100, 1000, 10000]  # Add more levels as required
+    tolerance = 1.0
+    PYTHON_RANDOM_GEN_CLASSES = [
+        { "class": RandomGen, "name": 'Basic' },
+        { "class": RandomGenZip, "name": 'Zip' },
+        { "class": RandomGenRandomChoices, "name": 'Random Choices' },
+        { "class": RandomGenNumpyArgMax, "name": 'Arg Max' },
+        { "class": BinaryNumpyWithErrorHandling, "name": 'Numpy B Search wv EH' },
+        { "class": RandomGenBinarySearchNumpy, "name": 'Numpy Binary Search' },
+        { "class": RandomGenBinarySearch, "name": 'Binary Search' }
+    ]
+
+- **Pandas 🐼🐼🐼:** The ``generate_test_data`` function (in the utils folder) runs the performance tests. It returns it as a Pandas DataFrame, featuring the execution times for each generator to each defined level of iteration. I implemented with Pandas to handle the input data in a more structured and efficient way. (Or perhaps an excuse to demonstrate that I can utilise these third-party libraries.)
 
 - **Results:** Current result, shows Binary Search is the faster model:
 
