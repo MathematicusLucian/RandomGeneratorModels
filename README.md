@@ -192,6 +192,13 @@ I have not pursued this far, because that would be beyond remit, and do not prom
 
 - (GET request)
 
+- Will save the performance to the Sqlite3 database.
+
 - This is hardcoded, i.e. the names of the models; which relate to Python classes, but this could be dynamic, with error handling where an invalid class name - but this Flask API microservice is already beyond the remit. The actual Performance Test Engine is dynamic. 
 
 - Another improvement would be to save timestamp with each performance run; and this could allow a time-series consideration, except this may be an opportunity demonstrate/explore the logic/functionality rather than necessarily a use case to run a performance test daily.
+
+
+``/performance_results_all``: Returns from the Sqlite3 database ALL execution times per mode, per iteration level.
+
+- (GET request)
