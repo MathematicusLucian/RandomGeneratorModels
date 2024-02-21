@@ -6,6 +6,8 @@ from five.binarynumpy import RandomGenBinarySearchNumpy
 from sIx.binarynumpyerrorh import BinaryNumpyWithErrorHandling
 from seven.binarysearch import RandomGenBinarySearch
 from utils.performance_test_engine import generate_test_data, perform_performance_test
+import matplotlib.pyplot as plt
+from utils.plotter import add_data_to_plotter, generate_chart
 
 def test_all_models(random_nums,probabilities,iterations):
     PYTHON_RANDOM_GEN_CLASSES = [
@@ -31,3 +33,5 @@ if __name__ == '__main__':
     # # Plot execution time vs. input size
     for generator_name, generator_times in execution_times_panda.items():
         print(f"\n{generator_name, iterations, generator_times}")
+        add_data_to_plotter(plt, iterations, generator_times, generator_name)
+    generate_chart(plt)

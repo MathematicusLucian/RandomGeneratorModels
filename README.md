@@ -21,6 +21,8 @@ The random generator services aim to generate random numbers based on the given 
 
 *(Nb. these are within the same repo for simplicity when it comes to sharing this with whomever will review this; but if this was a real project, I would be inclined to have microservices in seperate repos, rather than a monorep.)*
 
+![chart of performance speeds](./assets/generator_perf_test_results.png)
+
 # Python Models 🐍🐍🐍
 This repo provides and compares the performance of seven Python models of a random number generator service. 
 
@@ -63,7 +65,7 @@ As the output of the generator is random, this limits the test options, i.e. I c
 ## 🌟 Performance Test Engine (Python)
 In ``performance_test_engine.py``.
 
-- **Sample implementation:** In the file ``performance_test.py``. This can be triggered from the Flask API service, or you can call it from the CLI: ``python3 performance_test.py``
+- **Sample implementation:** In the file ``performance_test.py``. This can be triggered from a FASTAPI or Flask API service, or you can call it from the CLI: ``python3 performance_test.py``
 
 - **Purpose:** I need to evalute these models, and find out their actual speeds, to compare their performance. The performance test is conducted for all the Python approaches, with or without a constructor, and whether or not they have third-party libraries. In all cases, the same test data is utilised (and prepared as a Pandas dataframe):
 
@@ -84,11 +86,25 @@ In ``performance_test_engine.py``.
 
 - **Pandas 🐼🐼🐼:** The ``generate_test_data`` function (in the utils folder) runs the performance tests. It returns it as a Pandas DataFrame, featuring the execution times for each generator to each defined level of iteration. I implemented with Pandas to handle the input data in a more structured and efficient way. (Or perhaps an excuse to demonstrate that I can utilise these third-party libraries.)
 
+- **Chart with MatPlotLib** I employed MatPlotLib to generate a chart (above in the README) of the performance results. ``save_plot_chart``: This line runs the function to save the chart to file (when running on local machine; disabled on the server.) Could dump this image data in a different format into a database.
+
 - **Results:** Current result, shows Binary Search is the faster model:
 
-    {'Basic': [0.010535955429077148], 'Zip': [0.0045108795166015625], 'Random Choices': [0.006726980209350586], 'Arg Max': [0.017208099365234375], 'Numpy B Search wv EH': [0.017487287521362305], 'Numpy Binary Search': [0.011810064315795898], 'Binary Search': [0.006208896636962891]}
+    ('Basic', [10, 100, 1000, 10000], [0.0027840137481689453, 0.0027718544006347656, 0.0028028488159179688, 0.0027649402618408203])
 
-- **Opportunities:** Need to plot this on a graph (MatPlotLib? Maybe a graph on React.) FInd an excuse to throw in some Pandas 🐼🐼🐼
+    ('Zip', [10, 100, 1000, 10000], [0.0032629966735839844, 0.003304004669189453, 0.0032529830932617188, 0.0032510757446289062])
+
+    ('Random Choices', [10, 100, 1000, 10000], [0.00604701042175293, 0.006039142608642578, 0.005906820297241211, 0.005939960479736328])
+
+    ('Arg Max', [10, 100, 1000, 10000], [0.014555931091308594, 0.014529943466186523, 0.01449441909790039, 0.014703035354614258])
+
+    ('Numpy B Search wv EH', [10, 100, 1000, 10000], [0.010276079177856445, 0.01022195816040039, 0.0103607177734375, 0.010721921920776367])
+
+    ('Numpy Binary Search', [10, 100, 1000, 10000], [0.010213851928710938, 0.010170936584472656, 0.0103302001953125, 0.010263204574584961])
+
+    ('Binary Search', [10, 100, 1000, 10000], [0.002596139907836914, 0.0026030540466308594, 0.0026056766510009766, 0.002586841583251953])
+
+**Opportunities:** I have gone beyond the remit already, so restrain my desire to create a broader sample. There may be less potential bias if the performance tests were run again for all input sizes, but with several different sets of random numbers and probabilities. 
 
 - ***Crude Factory:*** *I didn't want to write the same test code over and over, so I hacked together a crude factory method approach to feed the classes into a function, that generates each in turn, running the tests. This could be prettier, but I will stop there, because I have already exceeded the remit.*
 
