@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <title id="head-title">report.html</title>
+      <link href="assets/style.css" rel="stylesheet" type="text/css"/>
+  </head>
+  <body>
+    <h1 id="title">report.html</h1>
+    <p>Report generated on 21-Feb-2024 at 20:35:53 by <a href="https://pypi.python.org/pypi/pytest-html">pytest-html</a>
+        v4.1.1</p>
+    <div id="environment-header">
+      <h2>Environment</h2>
+    </div>
+    <table id="environment"></table>
+    <!-- TEMPLATES -->
+      <template id="template_environment_row">
+      <tr>
+        <td></td>
+        <td></td>
+      </tr>
+    </template>
+    <template id="template_results-table__body--empty">
+      <tbody class="results-table-row">
+        <tr id="not-found-message">
+          <td colspan="4">No results found. Check the filters.</th>
+        </tr>
+    </template>
+    <template id="template_results-table__tbody">
+      <tbody class="results-table-row">
+        <tr class="collapsible">
+        </tr>
+        <tr class="extras-row">
+          <td class="extra" colspan="4">
+            <div class="extraHTML"></div>
+            <div class="media">
+              <div class="media-container">
+                  <div class="media-container__nav--left"><</div>
+                  <div class="media-container__viewport">
+                    <img src="" />
+                    <video controls>
+                      <source src="" type="video/mp4">
+                    </video>
+                  </div>
+                  <div class="media-container__nav--right">></div>
+                </div>
+                <div class="media__name"></div>
+                <div class="media__counter"></div>
+            </div>
+            <div class="logwrapper">
+              <div class="logexpander"></div>
+              <div class="log"></div>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </template>
+    <!-- END TEMPLATES -->
+    <div class="summary">
+      <div class="summary__data">
+        <h2>Summary</h2>
+        <div class="additional-summary prefix">
+        </div>
+        <p class="run-count">7 tests took 4 ms.</p>
+        <p class="filter">(Un)check the boxes to filter the results.</p>
+        <div class="summary__reload">
+          <div class="summary__reload__button hidden" onclick="location.reload()">
+            <div>There are still tests running. <br />Reload this page to get the latest results!</div>
+          </div>
+        </div>
+        <div class="summary__spacer"></div>
+        <div class="controls">
+          <div class="filters">
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="failed" disabled/>
+            <span class="failed">0 Failed,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="passed" />
+            <span class="passed">7 Passed,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="skipped" disabled/>
+            <span class="skipped">0 Skipped,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="xfailed" disabled/>
+            <span class="xfailed">0 Expected failures,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="xpassed" disabled/>
+            <span class="xpassed">0 Unexpected passes,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="error" disabled/>
+            <span class="error">0 Errors,</span>
+            <input checked="true" class="filter" name="filter_checkbox" type="checkbox" data-test-result="rerun" disabled/>
+            <span class="rerun">0 Reruns</span>
+          </div>
+          <div class="collapse">
+            <button id="show_all_details">Show all details</button>&nbsp;/&nbsp;<button id="hide_all_details">Hide all details</button>
+          </div>
+        </div>
+      </div>
+      <div class="additional-summary summary">
+      </div>
+      <div class="additional-summary postfix">
+      </div>
+    </div>
+    <table id="results-table">
+      <thead id="results-table-head">
+        <tr>
+          <th class="sortable" data-column-type="result">Result</th>
+          <th class="sortable" data-column-type="testId">Test</th>
+          <th class="sortable" data-column-type="duration">Duration</th>
+          <th>Links</th>
+        </tr>
+      </thead>
+    </table>
+  </body>
+  <footer>
+    <div id="data-container" data-jsonblob="{&#34;environment&#34;: {&#34;Python&#34;: &#34;3.12.1&#34;, &#34;Platform&#34;: &#34;macOS-13.5-arm64-arm-64bit&#34;, &#34;Packages&#34;: {&#34;pytest&#34;: &#34;8.0.1&#34;, &#34;pluggy&#34;: &#34;1.4.0&#34;}, &#34;Plugins&#34;: {&#34;html&#34;: &#34;4.1.1&#34;, &#34;metadata&#34;: &#34;3.1.1&#34;, &#34;anyio&#34;: &#34;4.2.0&#34;}}, &#34;tests&#34;: {&#34;test_solution.py::test_positive_next_num_once__valid_random_num[test_input0-expected_output0]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;test_solution.py::test_positive_next_num_once__valid_random_num[test_input0-expected_output0]&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;test_solution.py::test_positive_next_num_once__valid_random_num[test_input0-expected_output0]&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;----------------------------- Captured stdout call -----------------------------\n0.09380049214025521\n&#34;}], &#34;test_solution.py::test_positive_next_num_100__valid_random_num[test_input0-expected_output0]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;test_solution.py::test_positive_next_num_100__valid_random_num[test_input0-expected_output0]&#34;, &#34;duration&#34;: &#34;1 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;test_solution.py::test_positive_next_num_100__valid_random_num[test_input0-expected_output0]&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;1 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;----------------------------- Captured stdout call -----------------------------\n0.9060962196182986\n0.8876193591396775\n0.2881284828989489\n0.9425058926702689\n0.013672310402605192\n0.07696190216531862\n0.929192563222499\n0.5129259086535883\n0.3857814497634432\n0.2549420667325818\n0.17460206576689574\n0.8668668701901578\n0.6859844577520201\n0.5456857920222149\n0.7771465946929823\n0.009031459231230166\n0.7238264972362114\n0.003923515110218934\n0.2414844338479618\n0.4546153329381045\n0.6729877476228338\n0.8812939295056674\n0.2515217491719325\n0.2772588206772193\n0.016383673662025533\n0.21517023706332128\n0.76410545290316\n0.07859464263854521\n0.0723095663495259\n0.6516168486052863\n0.8569758571250629\n0.7791810349557936\n0.052768316080983424\n0.8539661406312589\n0.8839595964269635\n0.6283173093605313\n0.8979584604326278\n0.24671146457558746\n0.2721596752471628\n0.7043269987151866\n0.03274952426213473\n0.09499722095406737\n0.8779991834209321\n0.7547194922157471\n0.7249575558700079\n0.8254474286557658\n0.7234666145996423\n0.9391284120979195\n0.6632495381049187\n0.6153109075859644\n0.19179472704660538\n0.1822897373053598\n0.6558908140613758\n0.6110193303627428\n0.3578387032905823\n0.4337356960894855\n0.6163591546903489\n0.6260571649779075\n0.4266547282345936\n0.5694561983017766\n0.24879446152005702\n0.4449302807435712\n0.9535017836692856\n0.1124376946550738\n0.9158654624083874\n0.8649565741194069\n0.8128254293836732\n0.007535141578833948\n0.4559616091889219\n0.786675367192394\n0.33209869369165324\n0.9543870055388691\n0.17252246365408563\n0.047850126004063576\n0.7442838828302227\n0.14969733060012658\n0.4946359871571936\n0.09611766510920916\n0.9760071463383333\n0.8042129371006974\n0.5740002267596754\n0.5526601351412062\n0.05886675096028526\n0.6705208095818905\n0.13909907047071846\n0.3542960523083103\n0.9239820821290983\n0.11322407968616444\n0.2255696149611407\n0.14476738730617966\n0.4834541885111333\n0.6591649443821954\n0.32577283149734093\n0.24821702636130527\n0.10531116957672926\n0.3445141772405337\n0.7310023194217607\n0.6457798220043885\n0.4607170185963664\n0.5121383525913802\n&#34;}], &#34;test_solution.py::test_positive_next_num_100__valid_number_of_calls[100-probs0-random_nums0]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;test_solution.py::test_positive_next_num_100__valid_number_of_calls[100-probs0-random_nums0]&#34;, &#34;duration&#34;: &#34;1 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;test_solution.py::test_positive_next_num_100__valid_number_of_calls[100-probs0-random_nums0]&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;1 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;----------------------------- Captured stdout call -----------------------------\n1\n0.5465494559699985\n{1: 1}\n1\n0.4020326405063943\n{1: 2}\n1\n0.357440375038923\n{1: 3}\n1\n0.16777378736678628\n{1: 3, 0: 1}\n1\n0.2039271463716411\n{1: 3, 0: 2}\n1\n0.8701678315831952\n{1: 4, 0: 2}\n1\n0.44455287028794854\n{1: 5, 0: 2}\n1\n0.4006723664539438\n{1: 6, 0: 2}\n1\n0.6481663608917053\n{1: 7, 0: 2}\n1\n0.7528051084412755\n{1: 8, 0: 2}\n1\n0.0647549243247918\n{1: 8, 0: 3}\n1\n0.4699514455400192\n{1: 9, 0: 3}\n1\n0.6795635135058284\n{1: 10, 0: 3}\n1\n0.040647036415916604\n{1: 10, 0: 4}\n1\n0.8134907890316198\n{1: 11, 0: 4}\n1\n0.0911159028602847\n{1: 11, 0: 5}\n1\n0.3272747876917471\n{1: 12, 0: 5}\n1\n0.6614647922131238\n{1: 13, 0: 5}\n1\n0.4760720271231358\n{1: 14, 0: 5}\n1\n0.7917810442913864\n{1: 15, 0: 5}\n1\n0.9643605143940266\n{1: 15, 0: 5, 2: 1}\n1\n0.19556733746681454\n{1: 15, 0: 6, 2: 1}\n1\n0.21773919398039765\n{1: 15, 0: 7, 2: 1}\n1\n0.9917852313829661\n{1: 15, 0: 7, 2: 1, 3: 1}\n1\n0.8886635418064206\n{1: 16, 0: 7, 2: 1, 3: 1}\n1\n0.2440228594961481\n{1: 16, 0: 8, 2: 1, 3: 1}\n1\n0.028240655261110414\n{1: 16, 0: 9, 2: 1, 3: 1}\n1\n0.7685948668775245\n{1: 17, 0: 9, 2: 1, 3: 1}\n1\n0.5249557766687262\n{1: 18, 0: 9, 2: 1, 3: 1}\n1\n0.21433045021778308\n{1: 18, 0: 10, 2: 1, 3: 1}\n1\n0.723831399396039\n{1: 19, 0: 10, 2: 1, 3: 1}\n1\n0.8027200891432777\n{1: 20, 0: 10, 2: 1, 3: 1}\n1\n0.04146640662808676\n{1: 20, 0: 11, 2: 1, 3: 1}\n1\n0.06110958131614086\n{1: 20, 0: 12, 2: 1, 3: 1}\n1\n0.8220042422058628\n{1: 21, 0: 12, 2: 1, 3: 1}\n1\n0.23718453745214596\n{1: 21, 0: 13, 2: 1, 3: 1}\n1\n0.8479854064046793\n{1: 22, 0: 13, 2: 1, 3: 1}\n1\n0.09362790921093789\n{1: 22, 0: 14, 2: 1, 3: 1}\n1\n0.18364991460935576\n{1: 22, 0: 15, 2: 1, 3: 1}\n1\n0.8585927803957658\n{1: 23, 0: 15, 2: 1, 3: 1}\n1\n0.17361974926247625\n{1: 23, 0: 16, 2: 1, 3: 1}\n1\n0.012675352741021051\n{1: 23, 0: 17, 2: 1, 3: 1}\n1\n0.8702002724815506\n{1: 24, 0: 17, 2: 1, 3: 1}\n1\n0.20463438067433026\n{1: 24, 0: 18, 2: 1, 3: 1}\n1\n0.05317736257161054\n{1: 24, 0: 19, 2: 1, 3: 1}\n1\n0.05938862306434767\n{1: 24, 0: 20, 2: 1, 3: 1}\n1\n0.15639054087012327\n{1: 24, 0: 21, 2: 1, 3: 1}\n1\n0.10646143766975957\n{1: 24, 0: 22, 2: 1, 3: 1}\n1\n0.3808836315741563\n{1: 25, 0: 22, 2: 1, 3: 1}\n1\n0.7197199527018167\n{1: 26, 0: 22, 2: 1, 3: 1}\n1\n0.05612340935082405\n{1: 26, 0: 23, 2: 1, 3: 1}\n1\n0.37804757723714033\n{1: 27, 0: 23, 2: 1, 3: 1}\n1\n0.3241917720374121\n{1: 28, 0: 23, 2: 1, 3: 1}\n1\n0.7302013463891168\n{1: 29, 0: 23, 2: 1, 3: 1}\n1\n0.03401486737769632\n{1: 29, 0: 24, 2: 1, 3: 1}\n1\n0.3301740963430798\n{1: 30, 0: 24, 2: 1, 3: 1}\n1\n0.4798274110438969\n{1: 31, 0: 24, 2: 1, 3: 1}\n1\n0.35601381052919134\n{1: 32, 0: 24, 2: 1, 3: 1}\n1\n0.7359748595705112\n{1: 33, 0: 24, 2: 1, 3: 1}\n1\n0.8279723633160169\n{1: 34, 0: 24, 2: 1, 3: 1}\n1\n0.7972935715451009\n{1: 35, 0: 24, 2: 1, 3: 1}\n1\n0.23274847592110648\n{1: 35, 0: 25, 2: 1, 3: 1}\n1\n0.12469417406412397\n{1: 35, 0: 26, 2: 1, 3: 1}\n1\n0.8830640101825383\n{1: 36, 0: 26, 2: 1, 3: 1}\n1\n0.2747153940931062\n{1: 36, 0: 27, 2: 1, 3: 1}\n1\n0.4440271734319211\n{1: 37, 0: 27, 2: 1, 3: 1}\n1\n0.8370912789325945\n{1: 38, 0: 27, 2: 1, 3: 1}\n1\n0.5772483039838464\n{1: 39, 0: 27, 2: 1, 3: 1}\n1\n0.9020854904475966\n{1: 39, 0: 27, 2: 2, 3: 1}\n1\n0.5185842593837078\n{1: 40, 0: 27, 2: 2, 3: 1}\n1\n0.95145355532568\n{1: 40, 0: 27, 2: 3, 3: 1}\n1\n0.6304729742981882\n{1: 41, 0: 27, 2: 3, 3: 1}\n1\n0.2274413838731345\n{1: 41, 0: 28, 2: 3, 3: 1}\n1\n0.6545512881316365\n{1: 42, 0: 28, 2: 3, 3: 1}\n1\n0.6671130671894635\n{1: 43, 0: 28, 2: 3, 3: 1}\n1\n0.7175485558319026\n{1: 44, 0: 28, 2: 3, 3: 1}\n1\n0.8198470899582397\n{1: 45, 0: 28, 2: 3, 3: 1}\n1\n0.349088980688291\n{1: 46, 0: 28, 2: 3, 3: 1}\n1\n0.3325203572791722\n{1: 47, 0: 28, 2: 3, 3: 1}\n1\n0.07676707033414476\n{1: 47, 0: 29, 2: 3, 3: 1}\n1\n0.2781854196184994\n{1: 47, 0: 30, 2: 3, 3: 1}\n1\n0.10283667478090497\n{1: 47, 0: 31, 2: 3, 3: 1}\n1\n0.3986760643663132\n{1: 48, 0: 31, 2: 3, 3: 1}\n1\n0.8101085169216067\n{1: 49, 0: 31, 2: 3, 3: 1}\n1\n0.43366219549445195\n{1: 50, 0: 31, 2: 3, 3: 1}\n1\n0.9602869435715289\n{1: 50, 0: 31, 2: 4, 3: 1}\n1\n0.4050507535034269\n{1: 51, 0: 31, 2: 4, 3: 1}\n1\n0.916360006309987\n{1: 51, 0: 31, 2: 5, 3: 1}\n1\n0.10804432495234284\n{1: 51, 0: 32, 2: 5, 3: 1}\n1\n0.6151106804761326\n{1: 52, 0: 32, 2: 5, 3: 1}\n1\n0.5665270033803655\n{1: 53, 0: 32, 2: 5, 3: 1}\n1\n0.9641434074050057\n{1: 53, 0: 32, 2: 6, 3: 1}\n1\n0.34982122638041335\n{1: 54, 0: 32, 2: 6, 3: 1}\n1\n0.08409283359963515\n{1: 54, 0: 33, 2: 6, 3: 1}\n1\n0.0020037460795978568\n{1: 54, 0: 33, 2: 6, 3: 1, -1: 1}\n1\n0.9556420357609061\n{1: 54, 0: 33, 2: 7, 3: 1, -1: 1}\n1\n0.12422851583568428\n{1: 54, 0: 34, 2: 7, 3: 1, -1: 1}\n1\n0.10877279085174174\n{1: 54, 0: 35, 2: 7, 3: 1, -1: 1}\n1\n0.7195362106252211\n{1: 55, 0: 35, 2: 7, 3: 1, -1: 1}\n1\n0.46169644652389263\n{1: 56, 0: 35, 2: 7, 3: 1, -1: 1}\n{1: 56, 0: 35, 2: 7, 3: 1, -1: 1}\n&#34;}], &#34;test_solution.py::test_positive_next_num_once__one_item[probs0-random_nums0-1]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;test_solution.py::test_positive_next_num_once__one_item[probs0-random_nums0-1]&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;test_solution.py::test_positive_next_num_once__one_item[probs0-random_nums0-1]&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;----------------------------- Captured stdout call -----------------------------\n0.3096759981529892\n&#34;}], &#34;test_solution.py::test_positive_next_num_100__probabilities_in_tolerance[0.1-probs0-random_nums0]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;test_solution.py::test_positive_next_num_100__probabilities_in_tolerance[0.1-probs0-random_nums0]&#34;, &#34;duration&#34;: &#34;1 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;test_solution.py::test_positive_next_num_100__probabilities_in_tolerance[0.1-probs0-random_nums0]&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;1 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;----------------------------- Captured stdout call -----------------------------\n0.5873288185343596\n0.5733930269561798\n0.0325729150155446\n0.5384806834726009\n0.7709949486369312\n0.34838171449345945\n0.20189685105223576\n0.15620355130774444\n0.2671094036138898\n0.7950035692110157\n0.13847777896338564\n0.5289805136352412\n0.747450006946223\n0.04617709292833527\n0.7531788561763817\n0.21883035891575242\n0.10897663808638025\n0.8296475289684575\n0.599210444885397\n0.41721826008113383\n0.7437166957646139\n0.2967786494003224\n0.48287748679816533\n0.6252748000688515\n0.5504958717779048\n0.6573719506939808\n0.5291260814208637\n0.4718471088478452\n0.28148638664300707\n0.5636427867502014\n0.16414261753467252\n0.3692158181475915\n0.12681637100652077\n0.6302687924030816\n0.21076165281089332\n0.5420134356079044\n0.03182408834009531\n0.14740384656462435\n0.4470067590525737\n0.426196346210975\n0.0044930065556471055\n0.12689092989041306\n0.8000973874033492\n0.08643850055253433\n0.4475957700378026\n0.7434492574783185\n0.9280370526083798\n0.16408770774253478\n0.021949294190250823\n0.3492652453038816\n0.14231194338848752\n0.8695061179013694\n0.2769822890185082\n0.6263998628434988\n0.18716157233804576\n0.9012667243861092\n0.9564331667309537\n0.12930282278598093\n0.6058314500645967\n0.44035349045910976\n0.13406344414429583\n0.7568375198721617\n0.7872900872225118\n0.03252160666214621\n0.12623985371876323\n0.7226024807124436\n0.9930489653358201\n0.4084703523294979\n0.670246409665694\n0.16104043457230943\n0.3083043491357885\n0.24022038696696035\n0.9098768816323222\n0.34662086544531157\n0.9871218716038813\n0.5417606006872819\n0.8476041101990062\n0.7834265391760824\n0.13257912226238966\n0.21634022432053956\n0.4399062585686183\n0.07613842750424271\n0.46025105350439965\n0.8643264786311983\n0.353369046872245\n0.9725891131475056\n0.031032994810174297\n0.2853226397258063\n0.21434010913368196\n0.4673019596931792\n0.5019401870855381\n0.23282156555520772\n0.033191981789344904\n0.43094484166639524\n0.004909787589295611\n0.2676008264980647\n0.996798701632451\n0.7462757547413461\n0.10724733293743449\n0.757379943942333\n&#34;}], &#34;test_solution.py::test_positive_next_num_100__number_of_calls_not_zero[probs0-random_nums0-0]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;test_solution.py::test_positive_next_num_100__number_of_calls_not_zero[probs0-random_nums0-0]&#34;, &#34;duration&#34;: &#34;1 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;test_solution.py::test_positive_next_num_100__number_of_calls_not_zero[probs0-random_nums0-0]&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;1 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;----------------------------- Captured stdout call -----------------------------\n0.5558305368678794\n0.2938260179406623\n0.9061617044965752\n0.9675653753441965\n0.16142466650983922\n0.8296520761101981\n0.04714366923257984\n0.6101551170762346\n0.5649944752095736\n0.2741131197938397\n0.48971413420617105\n0.3488266440534098\n0.6804563057722572\n0.7319866817374494\n0.9934924104862259\n0.012272851390852213\n0.8538408743946323\n0.45541844620910854\n0.9045754950610783\n0.39671545527827023\n0.45889989872806236\n0.7775611044492461\n0.36282869202954837\n0.972000362490771\n0.7046280896432356\n0.06437830293200075\n0.5845768833559432\n0.9373461171691851\n0.5574435709837535\n0.9121051306145727\n0.024925979022214162\n0.01800247175163161\n0.6058622168119324\n0.7911346497755662\n0.7183699789346777\n0.9754500868762489\n0.12803882965670332\n0.2739673544732749\n0.23572160709838041\n0.9255898036606626\n0.8039155891382077\n0.7109521645582989\n0.7619805697278014\n0.5791638078385885\n0.23841516712355837\n0.9868109193718937\n0.019539788222545096\n0.9011999403660713\n0.7491970219676355\n0.9575722629509121\n0.8118962190545533\n0.08895977780130038\n0.12725638218081758\n0.2669822316919991\n0.060777750752976645\n0.827196971710903\n0.7748619522197058\n0.9510834447606653\n0.9946598844726678\n0.595073344371052\n0.16389061391036308\n0.331174011700511\n0.8219853729899262\n0.2420299283464491\n0.9319737823360678\n0.848102033533228\n0.9409043026361262\n0.9122800026095477\n0.6259238376516747\n0.22395317820920846\n0.8635979804346317\n0.8587299682062347\n0.5403574293016543\n0.2642887567932942\n0.3061454307578547\n0.9483315744657808\n0.7391485907035492\n0.32405924623575566\n0.3655825441096313\n0.934643934706902\n0.3140876144097281\n0.057326134067171575\n0.34349786613512057\n0.025771805570008466\n0.5986577482129048\n0.3115811267789831\n0.8036672161727337\n0.5913297935697475\n0.5301484741441105\n0.3870374275691413\n0.5675707905776548\n0.1277146147066045\n0.8860074219829022\n0.3010834851996671\n0.5866005468529121\n0.61051065529047\n0.05862389426978287\n0.32171911496471095\n0.5449601818282723\n0.8902838093055833\n&#34;}], &#34;test_solution.py::test_positive_next_num_once__total_probability_not_two[probs0-random_nums0-2]&#34;: [{&#34;extras&#34;: [], &#34;result&#34;: &#34;Passed&#34;, &#34;testId&#34;: &#34;test_solution.py::test_positive_next_num_once__total_probability_not_two[probs0-random_nums0-2]&#34;, &#34;duration&#34;: &#34;0 ms&#34;, &#34;resultsTableRow&#34;: [&#34;&lt;td class=\&#34;col-result\&#34;&gt;Passed&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-testId\&#34;&gt;test_solution.py::test_positive_next_num_once__total_probability_not_two[probs0-random_nums0-2]&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-duration\&#34;&gt;0 ms&lt;/td&gt;&#34;, &#34;&lt;td class=\&#34;col-links\&#34;&gt;&lt;/td&gt;&#34;], &#34;log&#34;: &#34;----------------------------- Captured stdout call -----------------------------\n0.407241805432514\n&#34;}]}, &#34;renderCollapsed&#34;: [&#34;passed&#34;], &#34;initialSort&#34;: &#34;result&#34;, &#34;title&#34;: &#34;report.html&#34;}"></div>
+    <script>
+      (function(){function r(e,n,t){function o(i,f){if(!n[i]){if(!e[i]){var c="function"==typeof require&&require;if(!f&&c)return c(i,!0);if(u)return u(i,!0);var a=new Error("Cannot find module '"+i+"'");throw a.code="MODULE_NOT_FOUND",a}var p=n[i]={exports:{}};e[i][0].call(p.exports,function(r){var n=e[i][1][r];return o(n||r)},p,p.exports,r,e,n,t)}return n[i].exports}for(var u="function"==typeof require&&require,i=0;i<t.length;i++)o(t[i]);return o}return r})()({1:[function(require,module,exports){
+const { getCollapsedCategory, setCollapsedIds } = require('./storage.js')
+
+class DataManager {
+    setManager(data) {
+        const collapsedCategories = [...getCollapsedCategory(data.renderCollapsed)]
+        const collapsedIds = []
+        const tests = Object.values(data.tests).flat().map((test, index) => {
+            const collapsed = collapsedCategories.includes(test.result.toLowerCase())
+            const id = `test_${index}`
+            if (collapsed) {
+                collapsedIds.push(id)
+            }
+            return {
+                ...test,
+                id,
+                collapsed,
+            }
+        })
+        const dataBlob = { ...data, tests }
+        this.data = { ...dataBlob }
+        this.renderData = { ...dataBlob }
+        setCollapsedIds(collapsedIds)
+    }
+
+    get allData() {
+        return { ...this.data }
+    }
+
+    resetRender() {
+        this.renderData = { ...this.data }
+    }
+
+    setRender(data) {
+        this.renderData.tests = [...data]
+    }
+
+    toggleCollapsedItem(id) {
+        this.renderData.tests = this.renderData.tests.map((test) =>
+            test.id === id ? { ...test, collapsed: !test.collapsed } : test,
+        )
+    }
+
+    set allCollapsed(collapsed) {
+        this.renderData = { ...this.renderData, tests: [...this.renderData.tests.map((test) => (
+            { ...test, collapsed }
+        ))] }
+    }
+
+    get testSubset() {
+        return [...this.renderData.tests]
+    }
+
+    get environment() {
+        return this.renderData.environment
+    }
+
+    get initialSort() {
+        return this.data.initialSort
+    }
+}
+
+module.exports = {
+    manager: new DataManager(),
+}
+
+},{"./storage.js":8}],2:[function(require,module,exports){
+const mediaViewer = require('./mediaviewer.js')
+const templateEnvRow = document.getElementById('template_environment_row')
+const templateResult = document.getElementById('template_results-table__tbody')
+
+function htmlToElements(html) {
+    const temp = document.createElement('template')
+    temp.innerHTML = html
+    return temp.content.childNodes
+}
+
+const find = (selector, elem) => {
+    if (!elem) {
+        elem = document
+    }
+    return elem.querySelector(selector)
+}
+
+const findAll = (selector, elem) => {
+    if (!elem) {
+        elem = document
+    }
+    return [...elem.querySelectorAll(selector)]
+}
+
+const dom = {
+    getStaticRow: (key, value) => {
+        const envRow = templateEnvRow.content.cloneNode(true)
+        const isObj = typeof value === 'object' && value !== null
+        const values = isObj ? Object.keys(value).map((k) => `${k}: ${value[k]}`) : null
+
+        const valuesElement = htmlToElements(
+            values ? `<ul>${values.map((val) => `<li>${val}</li>`).join('')}<ul>` : `<div>${value}</div>`)[0]
+        const td = findAll('td', envRow)
+        td[0].textContent = key
+        td[1].appendChild(valuesElement)
+
+        return envRow
+    },
+    getResultTBody: ({ testId, id, log, extras, resultsTableRow, tableHtml, result, collapsed }) => {
+        const resultBody = templateResult.content.cloneNode(true)
+        resultBody.querySelector('tbody').classList.add(result.toLowerCase())
+        resultBody.querySelector('tbody').id = testId
+        resultBody.querySelector('.collapsible').dataset.id = id
+
+        resultsTableRow.forEach((html) => {
+            const t = document.createElement('template')
+            t.innerHTML = html
+            resultBody.querySelector('.collapsible').appendChild(t.content)
+        })
+
+        if (log) {
+            // Wrap lines starting with "E" with span.error to color those lines red
+            const wrappedLog = log.replace(/^E.*$/gm, (match) => `<span class="error">${match}</span>`)
+            resultBody.querySelector('.log').innerHTML = wrappedLog
+        } else {
+            resultBody.querySelector('.log').remove()
+        }
+
+        if (collapsed) {
+            resultBody.querySelector('.collapsible > td')?.classList.add('collapsed')
+            resultBody.querySelector('.extras-row').classList.add('hidden')
+        } else {
+            resultBody.querySelector('.collapsible > td')?.classList.remove('collapsed')
+        }
+
+        const media = []
+        extras?.forEach(({ name, format_type, content }) => {
+            if (['image', 'video'].includes(format_type)) {
+                media.push({ path: content, name, format_type })
+            }
+
+            if (format_type === 'html') {
+                resultBody.querySelector('.extraHTML').insertAdjacentHTML('beforeend', `<div>${content}</div>`)
+            }
+        })
+        mediaViewer.setup(resultBody, media)
+
+        // Add custom html from the pytest_html_results_table_html hook
+        tableHtml?.forEach((item) => {
+            resultBody.querySelector('td[class="extra"]').insertAdjacentHTML('beforeend', item)
+        })
+
+        return resultBody
+    },
+}
+
+module.exports = {
+    dom,
+    htmlToElements,
+    find,
+    findAll,
+}
+
+},{"./mediaviewer.js":6}],3:[function(require,module,exports){
+const { manager } = require('./datamanager.js')
+const { doSort } = require('./sort.js')
+const storageModule = require('./storage.js')
+
+const getFilteredSubSet = (filter) =>
+    manager.allData.tests.filter(({ result }) => filter.includes(result.toLowerCase()))
+
+const doInitFilter = () => {
+    const currentFilter = storageModule.getVisible()
+    const filteredSubset = getFilteredSubSet(currentFilter)
+    manager.setRender(filteredSubset)
+}
+
+const doFilter = (type, show) => {
+    if (show) {
+        storageModule.showCategory(type)
+    } else {
+        storageModule.hideCategory(type)
+    }
+
+    const currentFilter = storageModule.getVisible()
+    const filteredSubset = getFilteredSubSet(currentFilter)
+    manager.setRender(filteredSubset)
+
+    const sortColumn = storageModule.getSort()
+    doSort(sortColumn, true)
+}
+
+module.exports = {
+    doFilter,
+    doInitFilter,
+}
+
+},{"./datamanager.js":1,"./sort.js":7,"./storage.js":8}],4:[function(require,module,exports){
+const { redraw, bindEvents, renderStatic } = require('./main.js')
+const { doInitFilter } = require('./filter.js')
+const { doInitSort } = require('./sort.js')
+const { manager } = require('./datamanager.js')
+const data = JSON.parse(document.getElementById('data-container').dataset.jsonblob)
+
+function init() {
+    manager.setManager(data)
+    doInitFilter()
+    doInitSort()
+    renderStatic()
+    redraw()
+    bindEvents()
+}
+
+init()
+
+},{"./datamanager.js":1,"./filter.js":3,"./main.js":5,"./sort.js":7}],5:[function(require,module,exports){
+const { dom, find, findAll } = require('./dom.js')
+const { manager } = require('./datamanager.js')
+const { doSort } = require('./sort.js')
+const { doFilter } = require('./filter.js')
+const {
+    getVisible,
+    getCollapsedIds,
+    setCollapsedIds,
+    getSort,
+    getSortDirection,
+    possibleFilters,
+} = require('./storage.js')
+
+const removeChildren = (node) => {
+    while (node.firstChild) {
+        node.removeChild(node.firstChild)
+    }
+}
+
+const renderStatic = () => {
+    const renderEnvironmentTable = () => {
+        const environment = manager.environment
+        const rows = Object.keys(environment).map((key) => dom.getStaticRow(key, environment[key]))
+        const table = document.getElementById('environment')
+        removeChildren(table)
+        rows.forEach((row) => table.appendChild(row))
+    }
+    renderEnvironmentTable()
+}
+
+const addItemToggleListener = (elem) => {
+    elem.addEventListener('click', ({ target }) => {
+        const id = target.parentElement.dataset.id
+        manager.toggleCollapsedItem(id)
+
+        const collapsedIds = getCollapsedIds()
+        if (collapsedIds.includes(id)) {
+            const updated = collapsedIds.filter((item) => item !== id)
+            setCollapsedIds(updated)
+        } else {
+            collapsedIds.push(id)
+            setCollapsedIds(collapsedIds)
+        }
+        redraw()
+    })
+}
+
+const renderContent = (tests) => {
+    const sortAttr = getSort(manager.initialSort)
+    const sortAsc = JSON.parse(getSortDirection())
+    const rows = tests.map(dom.getResultTBody)
+    const table = document.getElementById('results-table')
+    const tableHeader = document.getElementById('results-table-head')
+
+    const newTable = document.createElement('table')
+    newTable.id = 'results-table'
+
+    // remove all sorting classes and set the relevant
+    findAll('.sortable', tableHeader).forEach((elem) => elem.classList.remove('asc', 'desc'))
+    tableHeader.querySelector(`.sortable[data-column-type="${sortAttr}"]`)?.classList.add(sortAsc ? 'desc' : 'asc')
+    newTable.appendChild(tableHeader)
+
+    if (!rows.length) {
+        const emptyTable = document.getElementById('template_results-table__body--empty').content.cloneNode(true)
+        newTable.appendChild(emptyTable)
+    } else {
+        rows.forEach((row) => {
+            if (!!row) {
+                findAll('.collapsible td:not(.col-links', row).forEach(addItemToggleListener)
+                find('.logexpander', row).addEventListener('click',
+                    (evt) => evt.target.parentNode.classList.toggle('expanded'),
+                )
+                newTable.appendChild(row)
+            }
+        })
+    }
+
+    table.replaceWith(newTable)
+}
+
+const renderDerived = () => {
+    const currentFilter = getVisible()
+    possibleFilters.forEach((result) => {
+        const input = document.querySelector(`input[data-test-result="${result}"]`)
+        input.checked = currentFilter.includes(result)
+    })
+}
+
+const bindEvents = () => {
+    const filterColumn = (evt) => {
+        const { target: element } = evt
+        const { testResult } = element.dataset
+
+        doFilter(testResult, element.checked)
+        const collapsedIds = getCollapsedIds()
+        const updated = manager.renderData.tests.map((test) => {
+            return {
+                ...test,
+                collapsed: collapsedIds.includes(test.id),
+            }
+        })
+        manager.setRender(updated)
+        redraw()
+    }
+
+    const header = document.getElementById('environment-header')
+    header.addEventListener('click', () => {
+        const table = document.getElementById('environment')
+        table.classList.toggle('hidden')
+        header.classList.toggle('collapsed')
+    })
+
+    findAll('input[name="filter_checkbox"]').forEach((elem) => {
+        elem.addEventListener('click', filterColumn)
+    })
+
+    findAll('.sortable').forEach((elem) => {
+        elem.addEventListener('click', (evt) => {
+            const { target: element } = evt
+            const { columnType } = element.dataset
+            doSort(columnType)
+            redraw()
+        })
+    })
+
+    document.getElementById('show_all_details').addEventListener('click', () => {
+        manager.allCollapsed = false
+        setCollapsedIds([])
+        redraw()
+    })
+    document.getElementById('hide_all_details').addEventListener('click', () => {
+        manager.allCollapsed = true
+        const allIds = manager.renderData.tests.map((test) => test.id)
+        setCollapsedIds(allIds)
+        redraw()
+    })
+}
+
+const redraw = () => {
+    const { testSubset } = manager
+
+    renderContent(testSubset)
+    renderDerived()
+}
+
+module.exports = {
+    redraw,
+    bindEvents,
+    renderStatic,
+}
+
+},{"./datamanager.js":1,"./dom.js":2,"./filter.js":3,"./sort.js":7,"./storage.js":8}],6:[function(require,module,exports){
+class MediaViewer {
+    constructor(assets) {
+        this.assets = assets
+        this.index = 0
+    }
+
+    nextActive() {
+        this.index = this.index === this.assets.length - 1 ? 0 : this.index + 1
+        return [this.activeFile, this.index]
+    }
+
+    prevActive() {
+        this.index = this.index === 0 ? this.assets.length - 1 : this.index -1
+        return [this.activeFile, this.index]
+    }
+
+    get currentIndex() {
+        return this.index
+    }
+
+    get activeFile() {
+        return this.assets[this.index]
+    }
+}
+
+
+const setup = (resultBody, assets) => {
+    if (!assets.length) {
+        resultBody.querySelector('.media').classList.add('hidden')
+        return
+    }
+
+    const mediaViewer = new MediaViewer(assets)
+    const container = resultBody.querySelector('.media-container')
+    const leftArrow = resultBody.querySelector('.media-container__nav--left')
+    const rightArrow = resultBody.querySelector('.media-container__nav--right')
+    const mediaName = resultBody.querySelector('.media__name')
+    const counter = resultBody.querySelector('.media__counter')
+    const imageEl = resultBody.querySelector('img')
+    const sourceEl = resultBody.querySelector('source')
+    const videoEl = resultBody.querySelector('video')
+
+    const setImg = (media, index) => {
+        if (media?.format_type === 'image') {
+            imageEl.src = media.path
+
+            imageEl.classList.remove('hidden')
+            videoEl.classList.add('hidden')
+        } else if (media?.format_type === 'video') {
+            sourceEl.src = media.path
+
+            videoEl.classList.remove('hidden')
+            imageEl.classList.add('hidden')
+        }
+
+        mediaName.innerText = media?.name
+        counter.innerText = `${index + 1} / ${assets.length}`
+    }
+    setImg(mediaViewer.activeFile, mediaViewer.currentIndex)
+
+    const moveLeft = () => {
+        const [media, index] = mediaViewer.prevActive()
+        setImg(media, index)
+    }
+    const doRight = () => {
+        const [media, index] = mediaViewer.nextActive()
+        setImg(media, index)
+    }
+    const openImg = () => {
+        window.open(mediaViewer.activeFile.path, '_blank')
+    }
+    if (assets.length === 1) {
+        container.classList.add('media-container--fullscreen')
+    } else {
+        leftArrow.addEventListener('click', moveLeft)
+        rightArrow.addEventListener('click', doRight)
+    }
+    imageEl.addEventListener('click', openImg)
+}
+
+module.exports = {
+    setup,
+}
+
+},{}],7:[function(require,module,exports){
+const { manager } = require('./datamanager.js')
+const storageModule = require('./storage.js')
+
+const genericSort = (list, key, ascending, customOrder) => {
+    let sorted
+    if (customOrder) {
+        sorted = list.sort((a, b) => {
+            const aValue = a.result.toLowerCase()
+            const bValue = b.result.toLowerCase()
+
+            const aIndex = customOrder.findIndex((item) => item.toLowerCase() === aValue)
+            const bIndex = customOrder.findIndex((item) => item.toLowerCase() === bValue)
+
+            // Compare the indices to determine the sort order
+            return aIndex - bIndex
+        })
+    } else {
+        sorted = list.sort((a, b) => a[key] === b[key] ? 0 : a[key] > b[key] ? 1 : -1)
+    }
+
+    if (ascending) {
+        sorted.reverse()
+    }
+    return sorted
+}
+
+const durationSort = (list, ascending) => {
+    const parseDuration = (duration) => {
+        if (duration.includes(':')) {
+            // If it's in the format "HH:mm:ss"
+            const [hours, minutes, seconds] = duration.split(':').map(Number)
+            return (hours * 3600 + minutes * 60 + seconds) * 1000
+        } else {
+            // If it's in the format "nnn ms"
+            return parseInt(duration)
+        }
+    }
+    const sorted = list.sort((a, b) => parseDuration(a['duration']) - parseDuration(b['duration']))
+    if (ascending) {
+        sorted.reverse()
+    }
+    return sorted
+}
+
+const doInitSort = () => {
+    const type = storageModule.getSort(manager.initialSort)
+    const ascending = storageModule.getSortDirection()
+    const list = manager.testSubset
+    const initialOrder = ['Error', 'Failed', 'Rerun', 'XFailed', 'XPassed', 'Skipped', 'Passed']
+
+    storageModule.setSort(type)
+    storageModule.setSortDirection(ascending)
+
+    if (type?.toLowerCase() === 'original') {
+        manager.setRender(list)
+    } else {
+        let sortedList
+        switch (type) {
+        case 'duration':
+            sortedList = durationSort(list, ascending)
+            break
+        case 'result':
+            sortedList = genericSort(list, type, ascending, initialOrder)
+            break
+        default:
+            sortedList = genericSort(list, type, ascending)
+            break
+        }
+        manager.setRender(sortedList)
+    }
+}
+
+const doSort = (type, skipDirection) => {
+    const newSortType = storageModule.getSort(manager.initialSort) !== type
+    const currentAsc = storageModule.getSortDirection()
+    let ascending
+    if (skipDirection) {
+        ascending = currentAsc
+    } else {
+        ascending = newSortType ? false : !currentAsc
+    }
+    storageModule.setSort(type)
+    storageModule.setSortDirection(ascending)
+
+    const list = manager.testSubset
+    const sortedList = type === 'duration' ? durationSort(list, ascending) : genericSort(list, type, ascending)
+    manager.setRender(sortedList)
+}
+
+module.exports = {
+    doInitSort,
+    doSort,
+}
+
+},{"./datamanager.js":1,"./storage.js":8}],8:[function(require,module,exports){
+const possibleFilters = [
+    'passed',
+    'skipped',
+    'failed',
+    'error',
+    'xfailed',
+    'xpassed',
+    'rerun',
+]
+
+const getVisible = () => {
+    const url = new URL(window.location.href)
+    const settings = new URLSearchParams(url.search).get('visible')
+    const lower = (item) => {
+        const lowerItem = item.toLowerCase()
+        if (possibleFilters.includes(lowerItem)) {
+            return lowerItem
+        }
+        return null
+    }
+    return settings === null ?
+        possibleFilters :
+        [...new Set(settings?.split(',').map(lower).filter((item) => item))]
+}
+
+const hideCategory = (categoryToHide) => {
+    const url = new URL(window.location.href)
+    const visibleParams = new URLSearchParams(url.search).get('visible')
+    const currentVisible = visibleParams ? visibleParams.split(',') : [...possibleFilters]
+    const settings = [...new Set(currentVisible)].filter((f) => f !== categoryToHide).join(',')
+
+    url.searchParams.set('visible', settings)
+    window.history.pushState({}, null, unescape(url.href))
+}
+
+const showCategory = (categoryToShow) => {
+    if (typeof window === 'undefined') {
+        return
+    }
+    const url = new URL(window.location.href)
+    const currentVisible = new URLSearchParams(url.search).get('visible')?.split(',').filter(Boolean) ||
+        [...possibleFilters]
+    const settings = [...new Set([categoryToShow, ...currentVisible])]
+    const noFilter = possibleFilters.length === settings.length || !settings.length
+
+    noFilter ? url.searchParams.delete('visible') : url.searchParams.set('visible', settings.join(','))
+    window.history.pushState({}, null, unescape(url.href))
+}
+
+const getSort = (initialSort) => {
+    const url = new URL(window.location.href)
+    let sort = new URLSearchParams(url.search).get('sort')
+    if (!sort) {
+        sort = initialSort || 'result'
+    }
+    return sort
+}
+
+const setSort = (type) => {
+    const url = new URL(window.location.href)
+    url.searchParams.set('sort', type)
+    window.history.pushState({}, null, unescape(url.href))
+}
+
+const getCollapsedCategory = (renderCollapsed) => {
+    let categories
+    if (typeof window !== 'undefined') {
+        const url = new URL(window.location.href)
+        const collapsedItems = new URLSearchParams(url.search).get('collapsed')
+        switch (true) {
+        case !renderCollapsed && collapsedItems === null:
+            categories = ['passed']
+            break
+        case collapsedItems?.length === 0 || /^["']{2}$/.test(collapsedItems):
+            categories = []
+            break
+        case /^all$/.test(collapsedItems) || collapsedItems === null && /^all$/.test(renderCollapsed):
+            categories = [...possibleFilters]
+            break
+        default:
+            categories = collapsedItems?.split(',').map((item) => item.toLowerCase()) || renderCollapsed
+            break
+        }
+    } else {
+        categories = []
+    }
+    return categories
+}
+
+const getSortDirection = () => JSON.parse(sessionStorage.getItem('sortAsc')) || false
+const setSortDirection = (ascending) => sessionStorage.setItem('sortAsc', ascending)
+
+const getCollapsedIds = () => JSON.parse(sessionStorage.getItem('collapsedIds')) || []
+const setCollapsedIds = (list) => sessionStorage.setItem('collapsedIds', JSON.stringify(list))
+
+module.exports = {
+    getVisible,
+    hideCategory,
+    showCategory,
+    getCollapsedIds,
+    setCollapsedIds,
+    getSort,
+    setSort,
+    getSortDirection,
+    setSortDirection,
+    getCollapsedCategory,
+    possibleFilters,
+}
+
+},{}]},{},[4]);
+    </script>
+  </footer>
+</html>

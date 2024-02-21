@@ -11,6 +11,10 @@ Python was opted for.
 
 ``pytest --html=report.html test_solution.py``
 
+![test results](./assets/randomgen_test_output.png)
+
+![test results_details](./assets/randomgen_test_output2.png)
+
 ## VirtualEnv
 A virtual environment (to ensure that the dependencies for the project are isolated from the system-wide Python installation, so as to facilitate distribution of the project.)
 
