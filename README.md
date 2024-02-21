@@ -3,7 +3,7 @@
 
 ## Table of Contents
 1. [Introduction](#introduction)
-2. [Python Models 🐍🐍🐍](#python)
+2. [Python Models 🐍🐍🐍 - including with Numpy](#python)
 
     a. [First line/unit testing/TDD: PyTest](#pytest)
 
@@ -22,22 +22,22 @@ The random generator services aim to generate random numbers based on the given 
 Python was opted for.
 
 # Python Models 🐍🐍🐍
-This repo provides and compares the performance of two Python models of a random number generator service. 
+This repo provides and compares the performance of seven Python models of a random number generator service. 
 
 The solutions are as folows:
 1. **Basic:** Simple implementation. Quickly thrown together, without third-party libraries. Iterates through probabilities to find the appropriate random number.
 ### OOP with a constructor
-2. **Zip:** There is encouragement in the exercise critieria to look at making the solution more "pythonic". I added a constructor. I also used 'zip' to align the RandomNums and Probabilites arrays, but this was slower (or seems so) than the initial crude approach.
-3. **Random Choices:** I then added Random Choices.
+2. **Zip:** There is encouragement in the exercise critieria to look at making the solution more "pythonic". I added a constructor. I also used 'zip' to align the RandomNums and Probabilites arrays - intent being to speed up the model through "precompute" of the time-consuming alignment of the two arrays (RandomM and probabilities.)
+3. **Random Choices:** I then added Random Choices. 
 4. **Arg Max & Numpy:** Tried the third-party library Numpy to see if its array functions would speed up the model.
 5. **Binary Search (with Numpy):** Implemented NumPy arrays to store random numbers and probabilities. At this momement, I also took binary search tree approach. The thought behind this was that combining NumPy efficient array operations with functional programming principles would leverage the best of both worlds: the computational efficiency and versatility of NumPy with the clarity and maintainability of functional programming. This was faster than Arg Max, but not as quick as the other vanilla approaches. This may need deeper investigation. NumPy allows operations to be performed on entire arrays at once, known as vectorization, and thus, avoids the need to explicitly loop over elements.
 6. **Binary Search (with Numpy, and ErrorHandling):** I tweaked the approach from #5, and added some error handling. The next_num method utilizes NumPy functions like np.random.random() for generating random numbers and np.cumsum() for calculating cumulative probabilities. The np.argmax() function is employed again - to find the index of the first occurrence where the generated random number is less than the cumulative probabilities.
-
+7. **Binary Search (without Numpty):** At this moment, I wanted to see like-for-like whether the binary search was faster with or without Numpy. 
 
 ``__init__`` utilised so that these are modules that can be referenced by the unit tests, and even hypothetically, Flask or FastAPI, or a performance tests.
 
 ### Navigate to the python directory
-``cd python_models``: there is a directory for each of the models respectively.
+``cd python_models``: there is a directory for each of the seven solutions respectively.
 
 ### Install dependencies
 ``pip install -r requirements.txt``
