@@ -13,7 +13,9 @@
     d. [Requirements File](#generate-requirements-file)
 
 3. [Java](#java)
-4. [TypsScript](#typescript)
+4. [TypesScript](#typescript)
+4. [Flask API](#flask-api)
+4. [React UI](#react-ui)
 ---
 
 # Introduction
@@ -162,9 +164,12 @@ I have not pursued this far, because that would be beyond remit, and do not prom
 ### Unit tests
 I have not pursued this far, because that would be beyond remit, and do not promise that it functions well:``npm test``
 
-# Flask
+# Flask API
+PythonAnywhere is free hosting (yay!) but cheap or free isn't always best. It does not support ASGI, so no FastAPI, which would have auto-generate lovely Swagger docs if I declared the structures of the data types.
+
 - **Localhost:** ``python3 app.py``
 - **Deploy with uWSGI:** ``uwsgi --http :5000 --module app:app`` (or could use gunicorn)
+- **.Env File:** None of this hardcoding passwords into repos security risk nonsense. Details in a ``.env`` file that the ``.gitignore`` file notes is to be ignored.
 
 **Endpoints**
 
@@ -198,7 +203,34 @@ I have not pursued this far, because that would be beyond remit, and do not prom
 
 - Another improvement would be to save timestamp with each performance run; and this could allow a time-series consideration, except this may be an opportunity demonstrate/explore the logic/functionality rather than necessarily a use case to run a performance test daily.
 
-
-``/performance_results_all``: Returns from the Sqlite3 database ALL execution times per mode, per iteration level.
+``/performance_results_avg``: Returns from the Sqlite3 database the average execution time per model, per iteration level, across all past performance runs (these are stored in the database.) 
 
 - (GET request)
+
+- *The taking of an average across multiple performance evalution runs increases the sample size, and thus reduces bias.*
+
+- Example response:
+
+    {
+        "Arg Max": 0.0810598267449273,
+        "Basic": 0.018863810433281794,
+        "Binary Search": 0.020829174253675673,
+        "Numpy B Search wv EH": 0.0705918206108941,
+        "Numpy Binary Search": 0.08169968922932942,
+        "Random Choices": 0.04187014367845324,
+        "Zip": 0.017680380079481337
+    }
+
+``/performance_results_all``: This is similar to ``/performance_results_avg`` but returns from the Sqlite3 database ALL execution times per mode, per iteration level.
+
+- (GET request)
+
+### React UI
+Very crude app. I have not pursued this far, because that would be beyond remit. If this were for production, I would add more tests, liniting, and even setup Storybook, etc.. This is outside the remit, and just hacked together to show the chart.
+
+**Local Setup**
+To run the React UI and the random generator services locally, follow these steps:
+1. **Install dependencies:** ``npm install`` (or ``npm i``)
+2. **Run the development server** ``npm run build && serve -s build``, and then open http://localhost:3000 in your browser.
+
+**Webpack:** For a production app, this would have environments established, e.g. dev, staging, and prod.

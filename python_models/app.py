@@ -14,12 +14,12 @@ load_dotenv(dotenv_path=env_path)
 app = Flask(__name__)
 CORS(app)
 
-database = os.environ.get('DATABASE')
+DATABASE = os.environ.get('DATABASE')
 
 def get_db():
     db = getattr(g, '_database', None)
     if db is None:
-        db = g._database = sqlite3.connect(database)
+        db = g._database = sqlite3.connect(DATABASE)
         db.row_factory = sqlite3.Row
     return db
 
@@ -100,6 +100,34 @@ def performance_results_all():
                             formatted[model][iteration] = []
                         formatted[model][iteration].append(exec_speed)
         return jsonify(formatted)
+    except:
+        return jsonify({"No":"database"})
+
+@app.route('/performance_results_avg/', methods=['GET'])
+def performance_results_avg():
+    try:
+        db = get_db()
+        cur = db.cursor()
+        cur.execute('SELECT * FROM generator_runs')
+        rows = cur.fetchall()
+        formatted = {}
+        averages = {}
+        # Calculate averages
+        for row in rows:
+            data = json.loads(row['data'])
+            for model, iterations in data.items():
+                for iteration_pair in iterations:
+                    for iteration, exec_speed in iteration_pair.items():
+                        if model not in formatted:
+                            formatted[model] = {}
+                        if iteration not in formatted[model]:
+                            formatted[model][iteration] = []
+                        formatted[model][iteration].append(exec_speed)
+        for modelx, iterations in formatted.items():
+            for iteration, times in iterations.items():
+                avg_time = sum(times) / len(times)
+                averages[modelx] = avg_time
+        return jsonify(averages)
     except:
         return jsonify({"No":"database"})
 
