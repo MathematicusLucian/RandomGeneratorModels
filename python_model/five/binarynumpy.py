@@ -15,8 +15,8 @@ class RandomGenBinarySearchNumpy:
 
     def next_num(self):
         rand_num = np.random.random()
-        selected_num_index = np.argmax(rand_num < self._cumulative_prob)
-        num = self._random_nums[selected_num_index]
+        index = np.searchsorted(self._cumulative_prob, rand_num, side='right')
+        num = self._random_nums[index]
         if num in self._results:
             self._results[num] += 1
         else:
