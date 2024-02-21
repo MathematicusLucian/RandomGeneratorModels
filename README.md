@@ -1,5 +1,5 @@
 # 🌟 RandomGeneratorModels 🌟 🚀 
-- ⚡️ LIVE ⚡️ The model is hosted, and can be triggered with a Flask API endpoint: [Click here to open the endpoint](https://mathematicuslucian.eu.pythonanywhere.com/run_model) (Or, call it with Postman.)
+- **⚡️ LIVE ⚡️ The models are hosted, and they can be triggered with this Flask API endpoint:** [Click here to open the ``/run_performance`` endpoint](https://mathematicuslucian.eu.pythonanywhere.com/run_performance). This will take a split-second to load; because it runs a thousand iterations, across seven Python models, but it will then show you the performance/execution times. *(Or, use Postman for the ``/get_model`` POST request that will allow you to change the parameters. See the section below.)*
 ---
 
 ## Table of Contents
@@ -16,6 +16,9 @@
 
 3. [Java](#java)
 4. [TypesScript](#typescript)
+
+**Work-in-Progress** (Will leave these; because outside of the remit. I saw may Quant roles ask for React and Python, and wanted to demonstrate that I can build a fullstack app.)
+
 5. [Flask API](#flask-api)
 6. [React UI](#react-ui)
 7. [Deployment](#deployment)
