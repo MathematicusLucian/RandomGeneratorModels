@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import "./index.css";
+import "./app.css";
+import TimeSeriesChart from './TimeSeriesChart';
 
 const App = (props) => {
   const [randomNums, setRandomNums] = useState(props.randomNums);
@@ -57,16 +58,18 @@ const App = (props) => {
   return (
     <div>
       <h1>🌟Number Generation Models🌟 🚀 </h1>
-      <div class="formElement">
-        <label htmlFor="randomNums">Random Numbers:</label>
-        <input type="text" id="randomNums" value={randomNums} onChange={handleRandomNumsChange} />
-      </div>
-      <div class="formElement">
-        <label htmlFor="probabilities">Probabilities:</label>
-        <input type="text" id="probabilities" value={probabilities} onChange={handleProbabilitiesChange} />
-      </div>
-      <div class="formElement">
-        <button id="btn_run_model" onClick={handleClick}>Run the most optimal model</button>
+      <div id="form">
+        <div class="formElement">
+          <label htmlFor="randomNums">Random Numbers:</label>
+          <input type="text" id="randomNums" value={randomNums} onChange={handleRandomNumsChange} />
+        </div>
+        <div class="formElement">
+          <label htmlFor="probabilities">Probabilities:</label>
+          <input type="text" id="probabilities" value={probabilities} onChange={handleProbabilitiesChange} />
+        </div>
+        <div class="formElement">
+          <button id="btn_run_model" onClick={handleClick}>Run the most optimal model</button>
+        </div>
       </div>
       <div id="modelRunOutcome">
         <h2>Random Results (most efficient model)</h2>
@@ -74,9 +77,13 @@ const App = (props) => {
       </div>
       <hr />
       <div id="averageRuns">
-        {/* graph */}
-        <h2>Average performance runs, all models</h2>
-        <div>{avgPerformanceOutcome}</div>
+          <h2>Average performance runs, all models</h2>
+          <div style={{height:600}}>
+          <> 
+            <TimeSeriesChart data={avgPerformanceOutcome} />
+          </>
+          </div>
+          <div id="avgResults">{avgPerformanceOutcome}</div>
       </div>
     </div>
   );

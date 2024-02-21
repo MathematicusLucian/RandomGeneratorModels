@@ -13,7 +13,8 @@ module.exports = {
     {
       files: [
         "**/*.test.js",
-        "**/*.spec.js"
+        "**/*.spec.js",
+        "*.js"
       ],
       env: {
         jest: true // now **/*.spec.js files' env has both es6 *and* jest
